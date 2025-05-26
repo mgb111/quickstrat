@@ -112,6 +112,12 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
+        .nav-center { /* Container for nav links and top converter */
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+        }
 
         .nav-links {
             list-style: none;
@@ -166,6 +172,48 @@
             border-color: var(--text-primary);
             background: rgba(255, 255, 255, 0.05);
         }
+
+        /* --- Currency Converter Styles --- */
+        .currency-converter-top {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+        }
+        .currency-converter-top input[type="number"] {
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            padding: var(--space-xs);
+            width: 80px; /* Adjust as needed */
+            text-align: right;
+            border-radius: calc(var(--border-radius) - var(--space-xs));
+        }
+        .currency-converter-top input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color-focus, rgba(6, 182, 212, 0.5)); /* Using a part of aurora */
+        }
+        .currency-converter-top span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        #usd-display-top {
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 60px; /* To prevent layout shifts */
+            text-align: left;
+        }
+
+        .price-inr-display {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
         
         /* --- Hero Section --- */
         .hero {
@@ -195,7 +243,7 @@
             line-height: 1.15;
             letter-spacing: -0.02em;
             margin: 0 auto var(--space-md) auto;
-            max-width: 52rem; /* Slightly wider for new headline */
+            max-width: 50rem;
             color: var(--text-primary);
         }
         
@@ -291,7 +339,7 @@
         }
 
         /* --- Features Section (Revised) --- */
-        .features-grid { /* Reverted to original class name, expanded to 3 columns */
+        .features-grid { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
             gap: var(--space-lg);
@@ -363,13 +411,13 @@
             text-align: center;
         }
 
-        .strength-item .icon { /* Reusing feature card icon style for consistency */
+        .strength-item .icon { 
             display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-bottom: var(--space-md);
             color: var(--text-primary);
-            width: 3.5rem; /* Slightly larger */
+            width: 3.5rem; 
             height: 3.5rem;
             border-radius: 50%;
             background: var(--aurora-gradient);
@@ -650,7 +698,13 @@
         }
 
         /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 992px) { /* Added breakpoint for 3-column feature grid */
+        @media (max-width: 1024px) { /* Adjusted breakpoint for top currency converter */
+            .currency-converter-top {
+                display: none; /* Hide in nav on smaller screens, can be re-added elsewhere if needed */
+            }
+        }
+
+        @media (max-width: 992px) { 
             .features-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
@@ -698,14 +752,22 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">QuickStrat</a>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#strengths">Strengths</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#cta" class="btn btn-primary" style="display: none;">Get Started</a></li>
-                </ul>
+                <div class="nav-center">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#strengths">Strengths</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#cta" class="btn btn-primary" style="display: none;">Get Started</a></li>
+                    </ul>
+                    <div class="currency-converter-top">
+                        <input type="number" id="inr-input-top" placeholder="INR" aria-label="INR Amount">
+                        <span>INR ≈</span>
+                        <span id="usd-display-top">$0.00</span>
+                        <span>USD</span>
+                    </div>
+                </div>
                 <a href="#pricing" class="btn btn-primary">Get Started</a>
                 <div class="hamburger" id="hamburger">
                     <div class="line1"></div>
@@ -761,49 +823,49 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11.55C12 10.12 10.88 9 9.45 9H5.73C4.36 9 3.24 10.04 3.11 11.4L2 22h14.11l-1.09-10.55z"></path><path d="M19.66 7.06A7.4 7.4 0 0015 5.15a7.4 7.4 0 00-3.91 1.21"></path><path d="M22 11.42A10.56 10.56 0 0016.5 9"></path><path d="M17 22l5-5"></path><path d="M20.5 15.5L19 14l-1.5 1.5"></path></svg>
                         </div>
                         <h3>Business Profile Setup</h3>
-                        <p>Input your business name (e.g., "Major Beam"), industry (e.g., "Virtual Reality"), type (Agency, etc.), target audience (e.g., "Tech Enthusiasts"), and product category to perfectly tailor your strategy.</p>
+                        <p>Input your business name, industry, type, target audience, and product category to perfectly tailor your strategy.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                         </div>
                         <h3>Content Goals & Strategy Config</h3>
-                        <p>Select multiple marketing objectives (Brand Awareness, Lead Gen, SEO, etc.), define your desired content tone (Humorous, Conversational), and specify optional monthly themes.</p>
+                        <p>Select multiple marketing objectives, define your desired content tone, and specify optional monthly themes for highly targeted output.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 110-14h8.5a6.5 6.5 0 110 13H11"></path><path d="M15 9l-3 3 3 3"></path></svg>
                         </div>
                         <h3>AI-Powered Strategy Blueprint</h3>
-                        <p>Receive AI-generated Content Pillars (e.g., "Immersive Tech Trends") with detailed descriptions and topic ideas, alongside in-depth Audience Personas ("Tech Enthusiast Tyler") including demographics and motivations.</p>
+                        <p>Receive AI-generated Content Pillars with topic ideas, and in-depth Audience Personas including demographics and motivations.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                         </div>
                         <h3>Detailed Content Planning</h3>
-                        <p>Get 6+ blog post ideas with SEO-optimized titles, target keywords (volume/difficulty), and content notes. Plus, 12+ repurposed LinkedIn posts and an organized content calendar.</p>
+                        <p>Get 6+ blog post ideas with SEO-optimized titles, target keywords, and content notes. Plus, 12+ repurposed LinkedIn posts & an organized calendar.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                         </div>
                         <h3>AI Content Generation</h3>
-                        <p>Generate complete, publication-ready blog posts in one click. Easily copy the SEO-focused content with smart keyword integration to use wherever you need it.</p>
+                        <p>Generate complete, publication-ready blog posts in one click. Easily copy the SEO-focused content with smart keyword integration.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline><line x1="12" y1="18" x2="12" y2="18.01"></line><path d="m15 3-2.5 2.5"></path><path d="m15 21 2.5-2.5"></path><path d="m3 9 2.5-2.5"></path><path d="M21 9l-2.5-2.5"></path></svg>
                         </div>
                         <h3>Visual Content Suggestions</h3>
-                        <p>Enhance your posts with curated stock photo recommendations from Unsplash and relevant video suggestions from Pexels, seamlessly integrated for each piece of content.</p>
+                        <p>Enhance your posts with curated stock photo recommendations from Unsplash and relevant video suggestions from Pexels.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path><path d="M2 8c0-2.2.7-4.3 2-6"></path><path d="M22 8c0-2.2-.7-4.3-2-6"></path></svg>
                         </div>
                         <h3>Multi-Platform Content Strategy</h3>
-                        <p>Optimize your blog content, adapt posts for LinkedIn, and repurpose assets for various channels, ensuring consistent brand messaging everywhere.</p>
+                        <p>Optimize your blog content, adapt posts for LinkedIn, and repurpose assets for various channels, ensuring consistent brand messaging.</p>
                     </div>
                 </div>
             </div>
@@ -859,6 +921,7 @@
                 <div class="pricing-card">
                     <h3>Strategy Pack</h3>
                     <div class="price">$20 <span>USD</span></div>
+                    <div class="price-inr-display" id="price-inr-equivalent">(Approx. ₹0.00 INR)</div>
                     <p class="description">20,000 Tokens</p>
                     <a href="#cta" class="btn btn-primary">Purchase Tokens Now</a>
                     <ul class="pricing-features">
@@ -940,7 +1003,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Yes! QuickStrat allows you to specify your business details, select target audiences, choose content goals, define a content tone, and even input a monthly theme. The AI uses all this to tailor the strategy. Once content is generated, you have full control to edit and refine it.</p>
+                            <p>Yes! QuickStrat allows you to specify your business details, select target audiences, choose content goals, define a content tone (or provide a sample for style matching), and even input a monthly theme. The AI uses all this to tailor the strategy. Once content is generated, you have full control to edit and refine it.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -984,14 +1047,52 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Interactive Spotlight
+            // --- Currency Converter Logic ---
+            const INR_TO_USD_RATE = 0.012; // EXAMPLE: 1 INR = 0.012 USD. Replace with API call in production.
+            const USD_PRICE = 20;
+
+            const inrInputTop = document.getElementById('inr-input-top');
+            const usdDisplayTop = document.getElementById('usd-display-top');
+            const priceInrEquivalent = document.getElementById('price-inr-equivalent');
+
+            function updatePricingInr() {
+                if (priceInrEquivalent) {
+                    const inrValue = USD_PRICE / INR_TO_USD_RATE;
+                    priceInrEquivalent.textContent = `(Approx. ₹${inrValue.toLocaleString('en-IN', { maximumFractionDigits: 0 })} INR)`;
+                }
+            }
+
+            function updateTopConverter() {
+                if (inrInputTop && usdDisplayTop) {
+                    const inrAmount = parseFloat(inrInputTop.value);
+                    if (!isNaN(inrAmount) && inrAmount > 0) {
+                        const usdAmount = inrAmount * INR_TO_USD_RATE;
+                        usdDisplayTop.textContent = `$${usdAmount.toFixed(2)}`;
+                    } else if (inrInputTop.value.trim() === '') {
+                         usdDisplayTop.textContent = "$0.00";
+                    } else {
+                        usdDisplayTop.textContent = "$ --";
+                    }
+                }
+            }
+
+            if (inrInputTop) {
+                inrInputTop.addEventListener('input', updateTopConverter);
+            }
+
+            // Initial updates
+            updatePricingInr();
+            // updateTopConverter(); // Call if you want an initial conversion based on placeholder or empty input
+
+
+            // --- Interactive Spotlight ---
             const spotlight = document.querySelector('.spotlight');
             window.addEventListener('mousemove', (e) => {
                 spotlight.style.setProperty('--x', e.clientX + 'px');
                 spotlight.style.setProperty('--y', e.clientY + 'px');
             });
 
-            // Mobile Navigation
+            // --- Mobile Navigation ---
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
             const navLinkItems = navLinks.querySelectorAll('a');
@@ -1011,7 +1112,7 @@
                 });
             });
 
-            // FAQ Accordion
+            // --- FAQ Accordion ---
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
