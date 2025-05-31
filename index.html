@@ -337,6 +337,26 @@
             margin: 0 auto;
             line-height: 1.6;
         }
+        .section-content { /* For About Us section */
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .section-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+        }
+        .section-content p {
+            margin-bottom: var(--space-md);
+        }
+        .address {
+            font-style: normal;
+            color: var(--text-muted);
+        }
+
 
         /* --- Features Section (Revised) --- */
         .features-grid { 
@@ -629,7 +649,7 @@
              margin: 0;
              color: var(--text-muted);
              line-height: 1.6;
-        }
+         }
 
         .faq-item.active .faq-answer {
             max-height: 200px; /* Adjust as needed */
@@ -643,13 +663,20 @@
             transform: rotate(45deg);
         }
 
+        /* --- About Us Section (Copied from .section and .section-title, added specific styles) --- */
+        #about-us .section-title p {
+            max-width: 45rem; /* Slightly wider for about us text */
+        }
+
+
         /* --- CTA Section --- */
         #cta {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-lg);
             margin: var(--space-6xl) auto;
-            max-width: 1200px;
+            max-width: 1200px; /* Changed to match container */
+            padding: var(--space-3xl) var(--space-md); /* Add padding */
         }
 
         #cta .section-title {
@@ -711,11 +738,14 @@
         }
 
         @media (max-width: 768px) {
+            .nav-center { /* Hide nav-center items to make space for hamburger */
+                 /* display: none; */
+            }
             .nav-links {
                 position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
             }
             .nav-links.nav-active { right: 0; }
-            nav .btn-primary { display: none; }
+            nav .btn-primary { display: none; } /* Hide the main nav CTA button */
             .hamburger { display: block; }
             .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .hamburger.toggle .line2 { opacity: 0; }
@@ -730,6 +760,8 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr; } 
             .strengths-grid { grid-template-columns: 1fr; }
+             .nav-links .btn-primary { display: block !important; margin-top: var(--space-md);} /* Show Get Started in mobile nav */
+
         }
         
         @media (max-width: 480px) {
@@ -758,8 +790,9 @@
                         <li><a href="#strengths">Strengths</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#about-us">About Us</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#cta" class="btn btn-primary" style="display: none;">Get Started</a></li>
+                        <li><a href="https://contentstrategy.onrender.com/" class="btn btn-primary" style="display: none;">Get Started</a></li>
                     </ul>
                     <div class="currency-converter-top">
                         <input type="number" id="inr-input-top" placeholder="INR" aria-label="INR Amount">
@@ -768,7 +801,7 @@
                         <span>USD</span>
                     </div>
                 </div>
-                <a href="#pricing" class="btn btn-primary">Get Started</a>
+                <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Get Started</a>
                 <div class="hamburger" id="hamburger">
                     <div class="line1"></div>
                     <div class="line2"></div>
@@ -784,7 +817,7 @@
                 <h1>The AI-Powered <span class="text-gradient">Content Strategy</span> Generator</h1>
                 <p>QuickStrat takes you from zero to a comprehensive, multi-channel content plan with AI-generated content, SEO focus, and integrated visual assets. Effortlessly.</p>
                 <div class="btn-group">
-                    <a href="#pricing" class="btn btn-primary">Get Started Now</a>
+                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Generate Strategy Now</a>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
                 </div>
                 
@@ -916,7 +949,7 @@
                     <div class="price">$20 <span>USD</span></div>
                     <div class="price-inr-display" id="price-inr-equivalent">(Approx. ₹0.00 INR)</div>
                     <p class="description">20,000 Tokens</p>
-                    <a href="#cta" class="btn btn-primary">Purchase Tokens Now</a>
+                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Purchase Tokens Now</a>
                     <ul class="pricing-features">
                         <li>Full Strategy (All Features Above)</li>
                         <li>6 Blog Posts & 12 Social Posts</li>
@@ -934,30 +967,53 @@
                     <h2>Don't Just Take Our Word For It</h2>
                     <p>See what our customers are saying about their new content superpower.</p>
                 </div>
-                     <div class="testimonial-card">
-                        <p class="testimonial-content">"As a founder, having strategy, content creation, SEO, and even visual suggestions in one place is incredible. The quality is astounding and it perfectly captured our brand voice."</p>
-                        <div class="testimonial-author">
-                           <div class="author-avatar">
-                                <img src="https://i.pravatar.cc/48?u=a042581f4e29026702d" alt="Mark L.">
+                   <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <p class="testimonial-content">"As a founder, having strategy, content creation, SEO, and even visual suggestions in one place is incredible. The quality is astounding and it perfectly captured our brand voice."</p>
+                            <div class="testimonial-author">
+                               <div class="author-avatar">
+                                    <img src="https://i.pravatar.cc/48?u=a042581f4e29026702d" alt="Mark L.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Customer 1</h4>
+                                    <p>Founder</p>
+                                </div>
                             </div>
-                            <div class="author-info">
-                                <h4>Customer 1</h4>
-                                <p>Founder</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-content">"The detailed content plan, including keywords and visual ideas, was so insightful. It wasn't just generic topics; it was a real strategy we could implement immediately. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://i.pravatar.cc/48?u=a042581f4e29026701d" alt="Emily R.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Customer 2</h4>
+                                    <p>Digital Marketing Manager</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                     <div class="testimonial-card">
-                        <p class="testimonial-content">"The detailed content plan, including keywords and visual ideas, was so insightful. It wasn't just generic topics; it was a real strategy we could implement immediately. Highly recommended!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://i.pravatar.cc/48?u=a042581f4e29026701d" alt="Emily R.">
-                            </div>
-                            <div class="author-info">
-                                <h4>Customer 2</h4>
-                                <p>Digital Marketing Manager</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <section id="about-us" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About QuickStrat</h2>
+                    <p>Learn more about our mission and how we're revolutionizing content strategy.</p>
+                </div>
+                <div class="section-content">
+                    <p>QuickStrat was born from a simple idea: empower businesses and creators of all sizes to develop impactful content strategies without the usual complexity and high costs. We believe that a strong, data-driven content plan shouldn't be a luxury, but an accessible tool for growth. Our AI-powered platform is designed to be your intelligent partner, guiding you from initial concept to polished, multi-channel content ready to engage your audience.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to democratize strategic content creation. We aim to provide an intuitive, efficient, and powerful solution that helps users save time, optimize their marketing efforts, and achieve their content goals with clarity and confidence. We're committed to continuous innovation, ensuring QuickStrat remains at the forefront of AI-driven content strategy generation.</p>
+
+                    <h3>Operating Address</h3>
+                    <address class="address">
+                        QuickStrat<br>
+                        Mumbai, Maharashtra,<br>
+                        India
+                    </address>
                 </div>
             </div>
         </section>
@@ -1008,12 +1064,10 @@
             </div>
         </section>
         
-        <div class="container">
-             <section id="cta" class="section">
-                <div class="section-title">
+        <div class="container"> <section id="cta" class="section"> <div class="section-title">
                     <h2>Ready to Transform Your Content Workflow?</h2>
                     <p>Get started with your first 20,000 tokens and experience the power of end-to-end, AI-driven content strategy and creation.</p>
-                    <a href="#pricing" class="btn btn-primary">Purchase Your Strategy Pack</a>
+                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Purchase Your Strategy Pack</a>
                 </div>
             </section>
         </div>
@@ -1067,51 +1121,65 @@
 
             // --- Interactive Spotlight ---
             const spotlight = document.querySelector('.spotlight');
-            window.addEventListener('mousemove', (e) => {
-                spotlight.style.setProperty('--x', e.clientX + 'px');
-                spotlight.style.setProperty('--y', e.clientY + 'px');
-            });
+            if (spotlight) {
+                window.addEventListener('mousemove', (e) => {
+                    spotlight.style.setProperty('--x', e.clientX + 'px');
+                    spotlight.style.setProperty('--y', e.clientY + 'px');
+                });
+            }
+
 
             // --- Mobile Navigation ---
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-            const navLinkItems = navLinks.querySelectorAll('a');
             
-            const toggleNav = () => {
-                navLinks.classList.toggle('nav-active');
-                hamburger.classList.toggle('toggle');
-            };
-            
-            hamburger.addEventListener('click', toggleNav);
-            
-            navLinkItems.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('nav-active')) {
-                        toggleNav();
-                    }
+            if (hamburger && navLinks) {
+                const navLinkItems = navLinks.querySelectorAll('a');
+                
+                const toggleNav = () => {
+                    navLinks.classList.toggle('nav-active');
+                    hamburger.classList.toggle('toggle');
+                };
+                
+                hamburger.addEventListener('click', toggleNav);
+                
+                navLinkItems.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('nav-active')) {
+                            // Do not close if it's the "Get Started" button that has its own link
+                            if (!link.classList.contains('btn-primary')) {
+                                toggleNav();
+                            }
+                        }
+                    });
                 });
-            });
+            }
+
 
             // --- FAQ Accordion ---
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    const currentlyActive = document.querySelector('.faq-item.active');
-                    if (currentlyActive && currentlyActive !== item) {
-                        currentlyActive.classList.remove('active');
-                        const activeAnswer = currentlyActive.querySelector('.faq-answer');
-                        activeAnswer.style.maxHeight = null;
-                    }
+                if (question) {
+                    question.addEventListener('click', () => {
+                        const currentlyActive = document.querySelector('.faq-item.active');
+                        if (currentlyActive && currentlyActive !== item) {
+                            currentlyActive.classList.remove('active');
+                            const activeAnswer = currentlyActive.querySelector('.faq-answer');
+                           if(activeAnswer) activeAnswer.style.maxHeight = null;
+                        }
 
-                    item.classList.toggle('active');
-                    const answer = item.querySelector('.faq-answer');
-                    if (item.classList.contains('active')) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    } else {
-                        answer.style.maxHeight = null;
-                    }
-                });
+                        item.classList.toggle('active');
+                        const answer = item.querySelector('.faq-answer');
+                        if (answer) {
+                            if (item.classList.contains('active')) {
+                                answer.style.maxHeight = answer.scrollHeight + "px";
+                            } else {
+                                answer.style.maxHeight = null;
+                            }
+                        }
+                    });
+                }
             });
         });
     </script>
