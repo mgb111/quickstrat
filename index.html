@@ -116,13 +116,13 @@
         .nav-center { /* Container for nav links and top converter */
             display: flex;
             align-items: center;
-            gap: var(--space-xl);
+            gap: var(--space-lg); /* MODIFIED: Was --space-xl */
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: var(--space-xl);
+            gap: var(--space-lg); /* MODIFIED: Was --space-xl */
             margin: 0;
             padding: 0;
         }
@@ -729,6 +729,15 @@
             .currency-converter-top {
                 display: none; /* Hide in nav on smaller screens, can be re-added elsewhere if needed */
             }
+             .nav-center {
+                /* Ensures nav-links can be centered or take space if currency converter is hidden */
+                flex-grow: 1; 
+                justify-content: center; /* Centers nav-links if currency converter is gone */
+            }
+            .nav-links {
+                /* If you want nav-links to be centered when currency converter is hidden */
+                 /* margin: 0 auto; */ /* This could be an option depending on desired layout */
+            }
         }
 
         @media (max-width: 992px) { 
@@ -738,8 +747,10 @@
         }
 
         @media (max-width: 768px) {
-            .nav-center { /* Hide nav-center items to make space for hamburger */
-                 /* display: none; */
+            .nav-center { 
+                 /* Override 1024px behavior for mobile nav menu */
+                flex-grow: 0;
+                justify-content: flex-start;
             }
             .nav-links {
                 position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
@@ -774,6 +785,8 @@
             .pricing-card { padding: var(--space-lg); }
             .price { font-size: 2.5rem; }
             .feature-card { padding: var(--space-lg); }
+            .nav-links { width: 75%; } /* Make mobile nav wider on small screens */
+
         }
     </style>
 </head>
@@ -1064,7 +1077,9 @@
             </div>
         </section>
         
-        <div class="container"> <section id="cta" class="section"> <div class="section-title">
+        <div class="container"> 
+             <section id="cta" class="section"> 
+                <div class="section-title">
                     <h2>Ready to Transform Your Content Workflow?</h2>
                     <p>Get started with your first 20,000 tokens and experience the power of end-to-end, AI-driven content strategy and creation.</p>
                     <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Purchase Your Strategy Pack</a>
