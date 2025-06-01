@@ -138,17 +138,25 @@
             color: var(--text-primary);
         }
 
-        /* CSS Tweaks for Spacing & Aesthetics (Hero Section) */
+        /* Suggested CSS Tweaks for Spacing & Aesthetics */
+        /* Hero Text Flow */
         .hero p.subheadline { /* Targets the existing class on the subheadline paragraph */
-            margin-bottom: var(--space-sm) !important; /* Tighter space before problem agitation, !important to override general .hero p */
+            margin-bottom: var(--space-sm) !important; /* Tighter space before problem agitation */
         }
         .hero p.problem-agitation { /* Targets the existing class on the problem agitation paragraph */
-            margin-bottom: var(--space-xl) !important; /* More defined space before button group, !important to override general .hero p */
+            margin-bottom: var(--space-xl) !important; /* More defined space before button group */
         }
         .hero .btn-group {
             margin-top: var(--space-xl); /* Consistent space above hero buttons */
         }
-        /* End of Suggested CSS Tweaks for Hero Spacing */
+
+        /* Header Spacing Adjustment */
+        @media (min-width: 769px) { /* Apply when the desktop CTA button is visible */
+            nav > a.btn-primary { /* Targets the main CTA button directly under nav */
+                margin-left: var(--space-lg); /* Adds space between nav-center items and this button */
+            }
+        }
+        /* End of Suggested CSS Tweaks */
 
         .btn {
             display: inline-block;
@@ -256,7 +264,7 @@
             line-height: 1.15;
             letter-spacing: -0.02em;
             margin: 0 auto var(--space-md) auto;
-            max-width: 50rem; /* Increased max-width slightly for longer headline */
+            max-width: 50rem; 
             color: var(--text-primary);
         }
         
@@ -267,21 +275,19 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p { /* This is the general rule for p in hero */
+        .hero p { 
             font-size: 1.25rem;
             max-width: 44rem; 
-            margin: 0 auto var(--space-2xl) auto; /* Default bottom margin for paragraphs */
+            margin: 0 auto var(--space-2xl) auto; 
             color: var(--text-muted);
             line-height: 1.6;
         }
-        /* Specific overrides for hero paragraphs are above in the "CSS Tweaks" section */
 
         .hero .btn-group {
             display: flex;
             gap: var(--space-sm);
             justify-content: center;
             flex-wrap: wrap;
-            /* margin-top is now handled by the CSS Tweaks section */
         }
 
         .hero .btn {
@@ -348,7 +354,7 @@
         .section-title p {
             font-size: 1.125rem;
             color: var(--text-muted);
-            max-width: 42rem; /* Adjusted for pricing subtitle */
+            max-width: 42rem; 
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -479,11 +485,11 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--space-2xl);
-            max-width: 58rem; /* Max width for two cards side by side */
+            max-width: 58rem; 
             margin: 0 auto;
         }
 
-        @media (min-width: 769px) { /* Two columns for larger screens */
+        @media (min-width: 769px) { 
             .pricing-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -520,7 +526,7 @@
             z-index: 1;
         }
         
-        .pricing-card h3 { /* Plan Name */
+        .pricing-card h3 { 
             font-size: 1.75rem; 
             font-weight: 700;
             color: var(--text-primary);
@@ -536,15 +542,15 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1;
-            min-height: 3rem; /* Prevent layout shift */
+            min-height: 3rem; 
         }
 
-        .price span { /* USD */
+        .price span { 
             font-size: 1.1rem; 
             font-weight: 500;
             color: var(--text-muted);
         }
-        .price-cycle { /* /month or /year */
+        .price-cycle { 
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-muted);
@@ -554,25 +560,24 @@
         }
 
 
-        .pricing-card .description { /* Token description */
+        .pricing-card .description { 
             color: var(--text-muted);
             margin: 0 0 var(--space-lg) 0;
             font-size: 1rem;
-            min-height: 2.5em; /* Prevent layout shift */
+            min-height: 2.5em; 
         }
 
         .pricing-card .btn {
             width: 100%;
             font-size: 1.1rem;
             padding: 1rem;
-            margin-top: auto; /* Push button to bottom */
-            /* margin-bottom: var(--space-lg); /* Button itself does not need bottom margin if card has padding */
+            margin-top: auto; 
         }
         
         .pricing-features {
             list-style: none;
             padding: 0;
-            margin: 0 0 var(--space-lg) 0; /* Space below features before risk-reversal/button */
+            margin: 0 0 var(--space-lg) 0; 
             text-align: left;
             flex-grow: 1; 
         }
@@ -609,7 +614,7 @@
             align-items: center;
             margin-bottom: var(--space-lg);
             gap: var(--space-sm);
-            background-color: rgba(22, 27, 39, 0.7); /* Slightly more opaque surface for toggle */
+            background-color: rgba(22, 27, 39, 0.7); 
             padding: var(--space-xs);
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
@@ -665,7 +670,7 @@
             margin: 0 0 var(--space-lg) 0;
             font-size: 1.125rem;
             line-height: 1.6;
-            border-left: 2px solid var(--border-color); /* Changed from var(--aurora-gradient) to var(--border-color) for subtlety */
+            border-left: 2px solid var(--border-color); 
             padding-left: var(--space-md);
         }
 
@@ -743,7 +748,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px; /* Increased slightly for longer answers */
+            max-height: 300px; 
         }
 
         .faq-icon {
@@ -837,8 +842,8 @@
         
         @media (max-width: 768px) { /* Tablet and Mobile */
              .pricing-grid {
-                grid-template-columns: 1fr; /* Stack pricing cards */
-                max-width: 28rem; /* Single card max width */
+                grid-template-columns: 1fr; 
+                max-width: 28rem; 
              }
             .nav-center { 
                 flex-grow: 0;
@@ -848,7 +853,7 @@
                 position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
             }
             .nav-links.nav-active { right: 0; }
-            nav .btn-primary { display: none; } 
+            nav > a.btn-primary { display: none; } /* Correctly targets the main header button */
             .hamburger { display: block; }
             .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .hamburger.toggle .line2 { opacity: 0; }
@@ -870,7 +875,7 @@
             .container { padding: 0 var(--space-sm); }
             body { background-size: 1.5rem 1.5rem; }
             .hero { padding: calc(4.5rem + var(--space-4xl)) 0 var(--space-4xl) 0; }
-            .hero h1 { font-size: 2rem; max-width: 100%;} /* Ensure hero H1 fits */
+            .hero h1 { font-size: 2rem; max-width: 100%;} 
             .hero p { max-width: 100%;}
             .section { padding: var(--space-4xl) 0; }
             .section-title h2 { font-size: 1.75rem; }
@@ -1364,34 +1369,42 @@
             const basicMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]');
             const basicAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]');
             if (basicMonthlyToggle && basicAnnuallyToggle) {
-                updatePricingCard('basic', basicAnnuallyToggle.classList.contains('active'));
-                 if (!basicAnnuallyToggle.classList.contains('active') && !basicMonthlyToggle.classList.contains('active')) {
+                // Check if annual is already active (e.g. from browser cache or previous state)
+                let isBasicAnnualActive = basicAnnuallyToggle.classList.contains('active');
+                if (!isBasicAnnualActive && !basicMonthlyToggle.classList.contains('active')) {
                     basicMonthlyToggle.classList.add('active'); // Default to monthly if none active
-                    updatePricingCard('basic', false);
+                    isBasicAnnualActive = false; 
+                } else if (isBasicAnnualActive) {
+                    basicMonthlyToggle.classList.remove('active');
+                } else { // Monthly is active
+                    basicAnnuallyToggle.classList.remove('active');
                 }
-                if(document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge')) {
-                   document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge').style.display = basicAnnuallyToggle.classList.contains('active') ? 'inline-block' : 'none';
-                }
-                 if(document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge')) {
-                    document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge').style.display = 'none';
-                }
+                updatePricingCard('basic', isBasicAnnualActive);
 
+                const basicSaveBadge = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge');
+                if(basicSaveBadge) {
+                   basicSaveBadge.style.display = isBasicAnnualActive ? 'inline-block' : 'none';
+                }
             }
 
 
             const proMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]');
             const proAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]');
             if (proMonthlyToggle && proAnnuallyToggle) {
-                 updatePricingCard('pro', proAnnuallyToggle.classList.contains('active'));
-                 if (!proAnnuallyToggle.classList.contains('active') && !proMonthlyToggle.classList.contains('active')) {
+                let isProAnnualActive = proAnnuallyToggle.classList.contains('active');
+                 if (!isProAnnualActive && !proMonthlyToggle.classList.contains('active')) {
                     proMonthlyToggle.classList.add('active'); // Default to monthly if none active
-                     updatePricingCard('pro', false);
+                    isProAnnualActive = false;
+                } else if (isProAnnualActive) {
+                    proMonthlyToggle.classList.remove('active');
+                } else { // Monthly is active
+                     proAnnuallyToggle.classList.remove('active');
                 }
-                 if(document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge')) {
-                    document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge').style.display = proAnnuallyToggle.classList.contains('active') ? 'inline-block' : 'none';
-                }
-                if(document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge')) {
-                    document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge').style.display = 'none';
+                updatePricingCard('pro', isProAnnualActive);
+
+                const proSaveBadge = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge');
+                 if(proSaveBadge) {
+                    proSaveBadge.style.display = isProAnnualActive ? 'inline-block' : 'none';
                 }
             }
 
