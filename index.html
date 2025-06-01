@@ -51,6 +51,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 4.5rem; /* Offset for fixed header height */
         }
 
         body {
@@ -111,30 +112,30 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            flex-shrink: 0; /* Prevent logo from shrinking */
-            margin-right: var(--space-lg); /* Add some space after logo before right content */
+            flex-shrink: 0; 
+            margin-right: var(--space-lg); 
         }
 
-        .nav-content-right { /* New wrapper for all items to the right of the logo */
+        .nav-content-right { 
             display: flex;
             align-items: center;
-            gap: var(--space-md); /* Gap between nav-center (links+currency) and main CTA button */
+            gap: var(--space-md); 
         }
         
         .nav-center { 
             display: flex;
             align-items: center;
-            gap: var(--space-md); /* Reduced gap between nav-links and currency-converter */
+            gap: var(--space-md); 
         }
 
         .nav-links {
             list-style: none;
             display: flex;
             align-items: center;
-            gap: var(--space-md); /* Reduced gap between nav link items */
+            gap: var(--space-md); 
             margin: 0;
             padding: 0;
-            white-space: nowrap; /* Try to keep links on one line */
+            white-space: nowrap; 
         }
 
         .nav-links li {
@@ -142,21 +143,21 @@
             align-items: center;
         }
 
-        .nav-links a:not(.btn) { /* Exclude button styling within mobile nav from this */
+        .nav-links a:not(.btn) { 
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 600;
             transition: var(--transition);
-            padding: var(--space-xs) 0; /* Vertical padding for visual balance */
-            display: inline-block; /* Makes padding apply correctly */
-            white-space: nowrap; /* Prevent individual link text from wrapping */
+            padding: var(--space-xs) 0; 
+            display: inline-block; 
+            white-space: nowrap; 
         }
 
         .nav-links a:not(.btn):hover {
             color: var(--text-primary);
         }
 
-        /* Previous CSS Tweaks for Hero Spacing - Kept for consistency */
+        /* Hero Text Flow - CSS Tweaks */
         .hero p.subheadline { 
             margin-bottom: var(--space-sm) !important; 
         }
@@ -169,9 +170,9 @@
         /* End of Hero Spacing Tweaks */
 
         .btn {
-            display: inline-flex; /* Use inline-flex for better alignment with text if needed */
-            align-items: center; /* Vertically align text in button */
-            justify-content: center; /* Horizontally align text in button */
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
             padding: 0.75rem 1.75rem;
             border-radius: var(--border-radius);
             text-decoration: none;
@@ -181,7 +182,7 @@
             white-space: nowrap;
             text-align: center;
             cursor: pointer;
-            line-height: 1.2; /* Ensure button text is well-aligned vertically */
+            line-height: 1.2; 
         }
 
         .btn-primary {
@@ -222,11 +223,11 @@
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
-            padding: var(--space-xs) 0.25rem; /* Adjusted padding */
-            width: 70px; /* Slightly adjusted width */
+            padding: var(--space-xs) 0.25rem; 
+            width: 70px; 
             text-align: right;
             border-radius: calc(var(--border-radius) - var(--space-xs));
-            height: calc(1.6em + var(--space-xs)); /* Try to match height of other elements */
+            height: calc(1.6em + var(--space-xs)); 
         }
         .currency-converter-top input[type="number"]:focus {
             outline: none;
@@ -239,7 +240,7 @@
         #usd-display-top {
             font-weight: 600;
             color: var(--text-primary);
-            min-width: 50px; /* Adjusted min-width */
+            min-width: 50px; 
             text-align: left;
         }
 
@@ -824,7 +825,7 @@
         .hamburger {
             display: none;
             cursor: pointer;
-            flex-shrink: 0; /* Prevent hamburger from shrinking */
+            flex-shrink: 0; 
         }
 
         .hamburger div {
@@ -840,30 +841,25 @@
             .currency-converter-top {
                 display: none; 
             }
-             .nav-center { /* nav-center now only contains nav-links */
-                flex-grow: 1; /* Allows nav-links (via nav-center) to take available space */
-                justify-content: center; /* Centers nav-links within the nav-center space */
+            .nav-center { 
+                flex-grow: 1; 
+                justify-content: flex-start; /* Align links to the start of nav-center */
             }
             .nav-content-right {
-                /* On this breakpoint, nav-content-right contains the growing nav-center and the main CTA button */
-                /* We might want nav-center to be more dominant here */
-                 flex-grow: 1; /* Allow the whole right group to take space if needed, but nav-center will grow within it*/
-                 justify-content: flex-end; /* Keep this group towards the right if nav-center doesn't fill it */
+                 flex-grow: 1; 
+                 justify-content: flex-end; 
             }
-             .nav-links {
-                gap: var(--space-sm); /* Slightly reduce gap between nav links if needed */
+            .nav-links {
+                gap: var(--space-sm); 
             }
         }
 
         @media (max-width: 992px) { /* Smaller Tablets */
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
              .nav-links {
-                gap: var(--space-xs); /* Further reduce gap for smaller tablets */
+                gap: var(--space-xs); 
             }
             .nav-center {
-                gap: var(--space-sm); /* Reduce gap if currency converter was there */
+                gap: var(--space-sm); 
             }
             .nav-content-right {
                 gap: var(--space-sm);
@@ -875,30 +871,30 @@
                 grid-template-columns: 1fr; 
                 max-width: 28rem; 
              }
-            .nav-content-right > .nav-main-cta { /* Hide the specific desktop CTA button */
+            .nav-content-right > a.btn-primary.nav-main-cta { 
                  display: none; 
             }
-            .nav-center { /* nav-center is inside nav-content-right, which is now the main thing besides logo */
-                flex-grow: 0; /* Don't let nav-center grow, mobile menu will handle links */
-                justify-content: flex-start; /* Not relevant if nav-links are hidden for flyout */
+            .nav-center { 
+                display: none; /* Hide nav-center as links move to flyout */
             }
-             .nav-content-right { /* This div will just be there, empty on nav, before hamburger */
-                order: 1; /* Ensure hamburger can be pushed right if needed, though space-between should handle it */
+             .nav-content-right { 
+                /* This div is effectively empty on nav, just before hamburger */
+                /* It can be removed or hidden too if not needed for structure */
+                /* For now, it will just be an empty flex item */
              }
             .hamburger { 
                 display: block; 
-                order: 2; /* Ensure hamburger is last item for flex spacing */
+                margin-left: auto; /* Push hamburger to the right if nav-content-right is empty/gone */
             }
-            .logo {
-                margin-right: auto; /* Push logo left, hamburger will be on right due to space-between */
-            }
+             nav { /* Ensure logo and hamburger are spaced if nav-content-right is effectively gone */
+                justify-content: space-between;
+             }
+
 
             .nav-links { /* Mobile flyout menu styles */
                 position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
-                /* Individual link padding already applied from desktop rules, should look fine */
             }
             .nav-links.nav-active { right: 0; }
-            /* nav > a.btn-primary { display: none; } /* Old rule - replaced by targeting .nav-main-cta */
             .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .hamburger.toggle .line2 { opacity: 0; }
             .hamburger.toggle .line3 { transform: rotate(45deg) translate(-6px, -6px); }
@@ -912,7 +908,7 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr; } 
             .strengths-grid { grid-template-columns: 1fr; }
-            .nav-links .btn-primary { display: inline-flex !important; margin-top: var(--space-md);} /* Ensure mobile CTA button is visible and behaves like other buttons */
+            .nav-links .btn-primary { display: inline-flex !important; margin-top: var(--space-md);} 
         }
         
         @media (max-width: 480px) { /* Mobile specific */
@@ -943,9 +939,8 @@
                     <div class="nav-center"> 
                         <ul class="nav-links" id="navLinks">
                             <li><a href="#features">Features</a></li>
-                            <li><a href="#strengths">Strengths</a></li>
                             <li><a href="#pricing">Pricing</a></li>
-                            <li><a href="#reviews">Reviews</a></li>
+                            <li><a href="#testimonials">Reviews</a></li>
                             <li><a href="#about-us">About Us</a></li>
                             <li><a href="#faq">FAQ</a></li>
                             <li><a href="https://contentstrategy.onrender.com/" class="btn btn-primary" style="display: none;">Get My 10-Min Strategy</a></li>
