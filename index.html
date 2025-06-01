@@ -137,56 +137,19 @@
         .nav-links a:hover {
             color: var(--text-primary);
         }
-/* Suggested CSS Tweaks for Spacing & Aesthetics */
 
-/* Hero Text Flow */
-.hero p.subheadline { /* Targets the existing class on the subheadline paragraph */
-    margin-bottom: var(--space-sm) !important; /* Tighter space before problem agitation */
-}
-.hero p.problem-agitation { /* Targets the existing class on the problem agitation paragraph */
-    margin-bottom: var(--space-xl) !important; /* More defined space before button group */
-}
-.hero .btn-group {
-    margin-top: var(--space-xl); /* Consistent space above hero buttons */
-}
+        /* CSS Tweaks for Spacing & Aesthetics (Hero Section) */
+        .hero p.subheadline { /* Targets the existing class on the subheadline paragraph */
+            margin-bottom: var(--space-sm) !important; /* Tighter space before problem agitation, !important to override general .hero p */
+        }
+        .hero p.problem-agitation { /* Targets the existing class on the problem agitation paragraph */
+            margin-bottom: var(--space-xl) !important; /* More defined space before button group, !important to override general .hero p */
+        }
+        .hero .btn-group {
+            margin-top: var(--space-xl); /* Consistent space above hero buttons */
+        }
+        /* End of Suggested CSS Tweaks for Hero Spacing */
 
-/* Pricing Card Internal Spacing Refinements */
-.pricing-features {
-     /* Ensure features list has adequate bottom margin before risk-reversal or button */
-     margin-bottom: var(--space-lg);
-}
-
-/* The .risk-reversal-inline paragraph was given inline styles for its top/bottom margin.
-   The .pricing-card .btn already has margin-top: auto; which correctly pushes it to the bottom.
-   The main concern is the space between the features list and the risk-reversal line.
-   If the feature list is short, its flex-grow:1 will allow it to expand,
-   and the risk-reversal's margin-top: var(--space-md) will create space.
-   If the feature list is long, it will naturally push the risk-reversal down.
-   This should generally work well with the HTML changes made.
-*/
-
-/* Urgency Offer Text - already styled inline, but a class could centralize it */
-.urgency-offer {
-    /* Example: if you wanted to add a subtle background or border */
-    /* background-color: rgba(var(--text-primary-rgb), 0.03); */
-    /* padding: var(--space-xs) var(--space-sm); */
-    /* border-radius: var(--border-radius-sm); */
-}
-
-/* Main Risk Reversal Text - already styled inline */
-.risk-reversal-main {
-    /* Additional styling could go here if needed */
-}
-
-/* Enhanced Readability for Muted Text (Optional - adjust if needed) */
-/*
-body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-card .description, .testimonial-content, .faq-answer p {
-    line-height: 1.7; // Slightly increased line-height for dense text blocks if needed
-}
-*/
-/* Note: Your global line-height is 1.6, which is generally good.
-   The above is only if you feel specific areas need more breathing room between lines.
-*/
         .btn {
             display: inline-block;
             padding: 0.75rem 1.75rem;
@@ -293,7 +256,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             line-height: 1.15;
             letter-spacing: -0.02em;
             margin: 0 auto var(--space-md) auto;
-            max-width: 50rem;
+            max-width: 50rem; /* Increased max-width slightly for longer headline */
             color: var(--text-primary);
         }
         
@@ -304,19 +267,21 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
+        .hero p { /* This is the general rule for p in hero */
             font-size: 1.25rem;
             max-width: 44rem; 
-            margin: 0 auto var(--space-2xl) auto;
+            margin: 0 auto var(--space-2xl) auto; /* Default bottom margin for paragraphs */
             color: var(--text-muted);
             line-height: 1.6;
         }
+        /* Specific overrides for hero paragraphs are above in the "CSS Tweaks" section */
 
         .hero .btn-group {
             display: flex;
             gap: var(--space-sm);
             justify-content: center;
             flex-wrap: wrap;
+            /* margin-top is now handled by the CSS Tweaks section */
         }
 
         .hero .btn {
@@ -495,7 +460,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
          .strength-item .icon svg {
             width: 1.75rem;
             height: 1.75rem;
-         }
+        }
 
         .strength-item h3 {
             font-size: 1.125rem;
@@ -525,10 +490,8 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
         }
         
         .pricing-card {
-            /* max-width: 28rem; */ /* Removed to allow grid to control width */
-            /* margin: 0 auto; */ /* Removed as grid handles layout */
             background: var(--surface-color);
-            padding: var(--space-xl); /* Slightly reduced padding from 2xl */
+            padding: var(--space-xl); 
             border-radius: var(--border-radius-lg);
             text-align: center;
             border: 1px solid transparent;
@@ -537,7 +500,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
-            height: 100%; /* Make cards equal height in grid */
+            height: 100%; 
         }
 
         .pricing-card::before {
@@ -553,19 +516,19 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             z-index: 0;
         }
         .pricing-card > * {
-            position: relative; /* Ensure content is above the pseudo-element */
+            position: relative; 
             z-index: 1;
         }
         
         .pricing-card h3 { /* Plan Name */
-            font-size: 1.75rem; /* Slightly larger for plan name */
+            font-size: 1.75rem; 
             font-weight: 700;
             color: var(--text-primary);
             margin: 0 0 var(--space-md) 0;
         }
         
         .price {
-            font-size: 3rem; /* Slightly smaller price */
+            font-size: 3rem; 
             font-weight: 800;
             margin: 0 0 var(--space-xs) 0;
             background: var(--aurora-gradient);
@@ -577,7 +540,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
         }
 
         .price span { /* USD */
-            font-size: 1.1rem; /* Slightly smaller */
+            font-size: 1.1rem; 
             font-weight: 500;
             color: var(--text-muted);
         }
@@ -586,7 +549,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             font-weight: 500;
             color: var(--text-muted);
             display: block;
-            margin-top: -var(--space-xs); /* Pull it up slightly */
+            margin-top: -var(--space-xs); 
             margin-bottom: var(--space-sm);
         }
 
@@ -603,15 +566,15 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             font-size: 1.1rem;
             padding: 1rem;
             margin-top: auto; /* Push button to bottom */
-            margin-bottom: var(--space-lg);
+            /* margin-bottom: var(--space-lg); /* Button itself does not need bottom margin if card has padding */
         }
         
         .pricing-features {
             list-style: none;
             padding: 0;
-            margin: 0 0 var(--space-lg) 0; /* Add margin bottom before button */
+            margin: 0 0 var(--space-lg) 0; /* Space below features before risk-reversal/button */
             text-align: left;
-            flex-grow: 1; /* Allow features to take space */
+            flex-grow: 1; 
         }
         
         .pricing-features li {
@@ -621,7 +584,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             display: flex;
             align-items: flex-start;
             gap: var(--space-sm);
-            font-size: 0.95rem; /* Slightly adjust feature text size */
+            font-size: 0.95rem; 
         }
 
         .pricing-features li:last-child {
@@ -636,7 +599,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             -webkit-text-fill-color: transparent;
             font-weight: 700;
             flex-shrink: 0;
-            margin-top: 2px; /* Align checkmark better */
+            margin-top: 2px; 
         }
 
         /* Billing Toggle Switch */
@@ -646,7 +609,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             align-items: center;
             margin-bottom: var(--space-lg);
             gap: var(--space-sm);
-            background-color: rgba(var(--text-primary-rgb), 0.03); /* Subtle background */
+            background-color: rgba(22, 27, 39, 0.7); /* Slightly more opaque surface for toggle */
             padding: var(--space-xs);
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
@@ -667,21 +630,17 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
         }
         .billing-toggle-label .save-badge {
             font-size: 0.75rem;
-            /* background: var(--white-color); */
-            /* color: var(--bg-color); */
             padding: 2px 6px;
             border-radius: 4px;
             margin-left: var(--space-xs);
             font-weight: 500;
             display: inline-block;
-            border: 1px solid var(--white-color); /* Make badge subtle when label active */
+            border: 1px solid var(--white-color); 
         }
-         /* Hide save badge if not active - JS can also control this more explicitly if needed */
         .billing-toggle-label:not(.active) .save-badge {
-            /* opacity: 0.7; */
-            /* background: transparent; */
-            /* border: 1px solid var(--text-muted); */
-            /* color: var(--text-muted); */
+            opacity: 0.7;
+            border-color: var(--text-muted);
+            color: var(--text-muted);
         }
 
 
@@ -706,7 +665,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             margin: 0 0 var(--space-lg) 0;
             font-size: 1.125rem;
             line-height: 1.6;
-            border-left: 2px solid var(--border-color);
+            border-left: 2px solid var(--border-color); /* Changed from var(--aurora-gradient) to var(--border-color) for subtlety */
             padding-left: var(--space-md);
         }
 
@@ -781,10 +740,10 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
              margin: 0;
              color: var(--text-muted);
              line-height: 1.6;
-         }
+        }
 
         .faq-item.active .faq-answer {
-            max-height: 250px; /* Adjusted for potentially longer answer */
+            max-height: 300px; /* Increased slightly for longer answers */
         }
 
         .faq-icon {
@@ -872,7 +831,7 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
              .pricing-grid {
-                /* max-width: 28rem; */ /* Allow single card to be wider on tablet */
+                /* max-width: 28rem; */ 
             }
         }
         
@@ -911,7 +870,8 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
             .container { padding: 0 var(--space-sm); }
             body { background-size: 1.5rem 1.5rem; }
             .hero { padding: calc(4.5rem + var(--space-4xl)) 0 var(--space-4xl) 0; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2rem; max-width: 100%;} /* Ensure hero H1 fits */
+            .hero p { max-width: 100%;}
             .section { padding: var(--space-4xl) 0; }
             .section-title h2 { font-size: 1.75rem; }
             .pricing-card { padding: var(--space-lg); }
@@ -1400,20 +1360,39 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
                 });
             });
 
-            updatePricingCard('basic', false);
-            if (document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]')) {
-                document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]').classList.add('active');
-            }
-            if(document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge')) {
-                document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge').style.display = 'none';
+            // Initialize pricing cards correctly
+            const basicMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]');
+            const basicAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]');
+            if (basicMonthlyToggle && basicAnnuallyToggle) {
+                updatePricingCard('basic', basicAnnuallyToggle.classList.contains('active'));
+                 if (!basicAnnuallyToggle.classList.contains('active') && !basicMonthlyToggle.classList.contains('active')) {
+                    basicMonthlyToggle.classList.add('active'); // Default to monthly if none active
+                    updatePricingCard('basic', false);
+                }
+                if(document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge')) {
+                   document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge').style.display = basicAnnuallyToggle.classList.contains('active') ? 'inline-block' : 'none';
+                }
+                 if(document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge')) {
+                    document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge').style.display = 'none';
+                }
+
             }
 
-            updatePricingCard('pro', false);
-            if (document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]')) {
-                document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]').classList.add('active');
-            }
-            if(document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge')) {
-                document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge').style.display = 'none';
+
+            const proMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]');
+            const proAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]');
+            if (proMonthlyToggle && proAnnuallyToggle) {
+                 updatePricingCard('pro', proAnnuallyToggle.classList.contains('active'));
+                 if (!proAnnuallyToggle.classList.contains('active') && !proMonthlyToggle.classList.contains('active')) {
+                    proMonthlyToggle.classList.add('active'); // Default to monthly if none active
+                     updatePricingCard('pro', false);
+                }
+                 if(document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge')) {
+                    document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge').style.display = proAnnuallyToggle.classList.contains('active') ? 'inline-block' : 'none';
+                }
+                if(document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge')) {
+                    document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"].active ~ .billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge').style.display = 'none';
+                }
             }
 
 
@@ -1473,13 +1452,6 @@ body, .hero p, .section-title p, .feature-card p, .strength-item p, .pricing-car
                     });
                 }
             });
-             // Initialize pricing cards
-            if (document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]')) {
-                updatePricingCard('basic', document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]').classList.contains('active'));
-            }
-            if (document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]')) {
-                updatePricingCard('pro', document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]').classList.contains('active'));
-            }
         });
     </script>
 </body>
