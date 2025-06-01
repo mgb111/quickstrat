@@ -111,55 +111,67 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+            margin-right: var(--space-lg); /* Add some space after logo before right content */
+        }
+
+        .nav-content-right { /* New wrapper for all items to the right of the logo */
+            display: flex;
+            align-items: center;
+            gap: var(--space-md); /* Gap between nav-center (links+currency) and main CTA button */
         }
         
         .nav-center { 
             display: flex;
             align-items: center;
-            gap: var(--space-lg); 
+            gap: var(--space-md); /* Reduced gap between nav-links and currency-converter */
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: var(--space-lg); 
+            align-items: center;
+            gap: var(--space-md); /* Reduced gap between nav link items */
             margin: 0;
             padding: 0;
+            white-space: nowrap; /* Try to keep links on one line */
         }
 
-        .nav-links a {
+        .nav-links li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:not(.btn) { /* Exclude button styling within mobile nav from this */
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 600;
             transition: var(--transition);
+            padding: var(--space-xs) 0; /* Vertical padding for visual balance */
+            display: inline-block; /* Makes padding apply correctly */
+            white-space: nowrap; /* Prevent individual link text from wrapping */
         }
 
-        .nav-links a:hover {
+        .nav-links a:not(.btn):hover {
             color: var(--text-primary);
         }
 
-        /* Suggested CSS Tweaks for Spacing & Aesthetics */
-        /* Hero Text Flow */
-        .hero p.subheadline { /* Targets the existing class on the subheadline paragraph */
-            margin-bottom: var(--space-sm) !important; /* Tighter space before problem agitation */
+        /* Previous CSS Tweaks for Hero Spacing - Kept for consistency */
+        .hero p.subheadline { 
+            margin-bottom: var(--space-sm) !important; 
         }
-        .hero p.problem-agitation { /* Targets the existing class on the problem agitation paragraph */
-            margin-bottom: var(--space-xl) !important; /* More defined space before button group */
+        .hero p.problem-agitation { 
+            margin-bottom: var(--space-xl) !important; 
         }
         .hero .btn-group {
-            margin-top: var(--space-xl); /* Consistent space above hero buttons */
+            margin-top: var(--space-xl); 
         }
-
-        /* Header Spacing Adjustment */
-        @media (min-width: 769px) { /* Apply when the desktop CTA button is visible */
-            nav > a.btn-primary { /* Targets the main CTA button directly under nav */
-                margin-left: var(--space-lg); /* Adds space between nav-center items and this button */
-            }
-        }
-        /* End of Suggested CSS Tweaks */
+        /* End of Hero Spacing Tweaks */
 
         .btn {
-            display: inline-block;
+            display: inline-flex; /* Use inline-flex for better alignment with text if needed */
+            align-items: center; /* Vertically align text in button */
+            justify-content: center; /* Horizontally align text in button */
             padding: 0.75rem 1.75rem;
             border-radius: var(--border-radius);
             text-decoration: none;
@@ -169,6 +181,7 @@
             white-space: nowrap;
             text-align: center;
             cursor: pointer;
+            line-height: 1.2; /* Ensure button text is well-aligned vertically */
         }
 
         .btn-primary {
@@ -209,10 +222,11 @@
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
-            padding: var(--space-xs);
-            width: 80px; 
+            padding: var(--space-xs) 0.25rem; /* Adjusted padding */
+            width: 70px; /* Slightly adjusted width */
             text-align: right;
             border-radius: calc(var(--border-radius) - var(--space-xs));
+            height: calc(1.6em + var(--space-xs)); /* Try to match height of other elements */
         }
         .currency-converter-top input[type="number"]:focus {
             outline: none;
@@ -225,7 +239,7 @@
         #usd-display-top {
             font-weight: 600;
             color: var(--text-primary);
-            min-width: 60px; 
+            min-width: 50px; /* Adjusted min-width */
             text-align: left;
         }
 
@@ -233,7 +247,7 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-top: var(--space-xs);
-            min-height: 1.2em; /* Prevent layout shift */
+            min-height: 1.2em; 
         }
         
         /* --- Hero Section --- */
@@ -810,6 +824,7 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            flex-shrink: 0; /* Prevent hamburger from shrinking */
         }
 
         .hamburger div {
@@ -821,40 +836,69 @@
         }
 
         /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 1024px) { 
+        @media (max-width: 1024px) { /* Medium Desktops / Tablets Large */
             .currency-converter-top {
                 display: none; 
             }
-             .nav-center {
-                flex-grow: 1; 
-                justify-content: center; 
+             .nav-center { /* nav-center now only contains nav-links */
+                flex-grow: 1; /* Allows nav-links (via nav-center) to take available space */
+                justify-content: center; /* Centers nav-links within the nav-center space */
+            }
+            .nav-content-right {
+                /* On this breakpoint, nav-content-right contains the growing nav-center and the main CTA button */
+                /* We might want nav-center to be more dominant here */
+                 flex-grow: 1; /* Allow the whole right group to take space if needed, but nav-center will grow within it*/
+                 justify-content: flex-end; /* Keep this group towards the right if nav-center doesn't fill it */
+            }
+             .nav-links {
+                gap: var(--space-sm); /* Slightly reduce gap between nav links if needed */
             }
         }
 
-        @media (max-width: 992px) { 
+        @media (max-width: 992px) { /* Smaller Tablets */
             .features-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
-             .pricing-grid {
-                /* max-width: 28rem; */ 
+             .nav-links {
+                gap: var(--space-xs); /* Further reduce gap for smaller tablets */
+            }
+            .nav-center {
+                gap: var(--space-sm); /* Reduce gap if currency converter was there */
+            }
+            .nav-content-right {
+                gap: var(--space-sm);
             }
         }
         
-        @media (max-width: 768px) { /* Tablet and Mobile */
+        @media (max-width: 768px) { /* True Tablet and Mobile */
              .pricing-grid {
                 grid-template-columns: 1fr; 
                 max-width: 28rem; 
              }
-            .nav-center { 
-                flex-grow: 0;
-                justify-content: flex-start;
+            .nav-content-right > .nav-main-cta { /* Hide the specific desktop CTA button */
+                 display: none; 
             }
-            .nav-links {
+            .nav-center { /* nav-center is inside nav-content-right, which is now the main thing besides logo */
+                flex-grow: 0; /* Don't let nav-center grow, mobile menu will handle links */
+                justify-content: flex-start; /* Not relevant if nav-links are hidden for flyout */
+            }
+             .nav-content-right { /* This div will just be there, empty on nav, before hamburger */
+                order: 1; /* Ensure hamburger can be pushed right if needed, though space-between should handle it */
+             }
+            .hamburger { 
+                display: block; 
+                order: 2; /* Ensure hamburger is last item for flex spacing */
+            }
+            .logo {
+                margin-right: auto; /* Push logo left, hamburger will be on right due to space-between */
+            }
+
+            .nav-links { /* Mobile flyout menu styles */
                 position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
+                /* Individual link padding already applied from desktop rules, should look fine */
             }
             .nav-links.nav-active { right: 0; }
-            nav > a.btn-primary { display: none; } /* Correctly targets the main header button */
-            .hamburger { display: block; }
+            /* nav > a.btn-primary { display: none; } /* Old rule - replaced by targeting .nav-main-cta */
             .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
             .hamburger.toggle .line2 { opacity: 0; }
             .hamburger.toggle .line3 { transform: rotate(45deg) translate(-6px, -6px); }
@@ -868,7 +912,7 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr; } 
             .strengths-grid { grid-template-columns: 1fr; }
-            .nav-links .btn-primary { display: block !important; margin-top: var(--space-md);} 
+            .nav-links .btn-primary { display: inline-flex !important; margin-top: var(--space-md);} /* Ensure mobile CTA button is visible and behaves like other buttons */
         }
         
         @media (max-width: 480px) { /* Mobile specific */
@@ -895,24 +939,26 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">QuickStrat</a>
-                <div class="nav-center">
-                    <ul class="nav-links" id="navLinks">
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#strengths">Strengths</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
-                        <li><a href="#about-us">About Us</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="https://contentstrategy.onrender.com/" class="btn btn-primary" style="display: none;">Get My 10-Min Strategy</a></li>
-                    </ul>
-                    <div class="currency-converter-top">
-                        <input type="number" id="inr-input-top" placeholder="INR" aria-label="INR Amount">
-                        <span>INR ≈</span>
-                        <span id="usd-display-top">$0.00</span>
-                        <span>USD</span>
+                <div class="nav-content-right">
+                    <div class="nav-center"> 
+                        <ul class="nav-links" id="navLinks">
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#strengths">Strengths</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#reviews">Reviews</a></li>
+                            <li><a href="#about-us">About Us</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="https://contentstrategy.onrender.com/" class="btn btn-primary" style="display: none;">Get My 10-Min Strategy</a></li>
+                        </ul>
+                        <div class="currency-converter-top">
+                            <input type="number" id="inr-input-top" placeholder="INR" aria-label="INR Amount">
+                            <span>INR ≈</span>
+                            <span id="usd-display-top">$0.00</span>
+                            <span>USD</span>
+                        </div>
                     </div>
+                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary nav-main-cta">Get My 10-Min Strategy</a>
                 </div>
-                <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Get My 10-Min Strategy</a>
                 <div class="hamburger" id="hamburger">
                     <div class="line1"></div>
                     <div class="line2"></div>
@@ -1369,14 +1415,13 @@
             const basicMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]');
             const basicAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]');
             if (basicMonthlyToggle && basicAnnuallyToggle) {
-                // Check if annual is already active (e.g. from browser cache or previous state)
                 let isBasicAnnualActive = basicAnnuallyToggle.classList.contains('active');
                 if (!isBasicAnnualActive && !basicMonthlyToggle.classList.contains('active')) {
-                    basicMonthlyToggle.classList.add('active'); // Default to monthly if none active
+                    basicMonthlyToggle.classList.add('active'); 
                     isBasicAnnualActive = false; 
                 } else if (isBasicAnnualActive) {
                     basicMonthlyToggle.classList.remove('active');
-                } else { // Monthly is active
+                } else { 
                     basicAnnuallyToggle.classList.remove('active');
                 }
                 updatePricingCard('basic', isBasicAnnualActive);
@@ -1393,11 +1438,11 @@
             if (proMonthlyToggle && proAnnuallyToggle) {
                 let isProAnnualActive = proAnnuallyToggle.classList.contains('active');
                  if (!isProAnnualActive && !proMonthlyToggle.classList.contains('active')) {
-                    proMonthlyToggle.classList.add('active'); // Default to monthly if none active
+                    proMonthlyToggle.classList.add('active'); 
                     isProAnnualActive = false;
                 } else if (isProAnnualActive) {
                     proMonthlyToggle.classList.remove('active');
-                } else { // Monthly is active
+                } else { 
                      proAnnuallyToggle.classList.remove('active');
                 }
                 updatePricingCard('pro', isProAnnualActive);
