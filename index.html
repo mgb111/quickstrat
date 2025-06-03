@@ -1,1589 +1,1536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XS6C6TQ880"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  gtag('config', 'G-XS6C6TQ880');
+  gtag('config', 'G-XS6C6TQ880');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickStrat - AI Content Strategy Generator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* =============================================
-         * FINAL COMPREHENSIVE DESIGN SYSTEM
-         * Consistent 8px Grid System
-         * Base: 1rem = 16px
-         * =============================================
-         */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickStrat - AI Content Strategy Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =============================================
+         * FINAL COMPREHENSIVE DESIGN SYSTEM
+         * Consistent 8px Grid System
+         * Base: 1rem = 16px
+         * =============================================
+         */
 
-        :root {
-            /* Palette */
-            --bg-color: #010313;
-            --surface-color: rgba(22, 27, 39, 0.5);
-            --border-color: rgba(100, 116, 139, 0.3);
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --white-color: #ffffff;
-            --aurora-gradient: linear-gradient(90deg, #9333ea, #06b6d4);
-            --aurora-gradient-subtle: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(6, 182, 212, 0.1));
-            
-            /* Sizing & Radius */
-            --border-radius: 1rem; /* 16px */
-            --border-radius-lg: 1.5rem; /* 24px */
-            --transition: all 0.2s ease-in-out;
-            
-            /* Consistent Spacing Scale (8px grid) */
-            --space-xs: 0.5rem;   /* 8px */
-            --space-sm: 1rem;     /* 16px */
-            --space-md: 1.5rem;   /* 24px */
-            --space-lg: 2rem;     /* 32px */
-            --space-xl: 2.5rem;   /* 40px */
-            --space-2xl: 3rem;    /* 48px */
-            --space-3xl: 4rem;    /* 64px */
-            --space-4xl: 5rem;    /* 80px */
-            --space-5xl: 6rem;    /* 96px */
-            --space-6xl: 8rem;    /* 128px */
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 4.5rem; /* Offset for fixed header height */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin: 0;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 1px 1px, rgba(100, 116, 139, 0.1) 1px, transparent 0);
-            background-size: 2rem 2rem;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background: radial-gradient(circle at var(--x) var(--y), rgba(147, 51, 234, 0.15) 0%, rgba(6, 182, 212, 0.15) 20%, transparent 40%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-md);
-        }
-
-        /* --- Header & Navigation --- */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(1, 3, 19, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 4.5rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            text-decoration: none;
-            background: var(--aurora-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            flex-shrink: 0; 
-            margin-right: var(--space-lg); 
-        }
-
-        .nav-content-right { 
-            display: flex;
-            align-items: center;
-            gap: var(--space-md); 
-        }
-        
-        .nav-center { 
-            display: flex;
-            align-items: center;
-            gap: var(--space-md); 
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: var(--space-md); 
-            margin: 0;
-            padding: 0;
-            white-space: nowrap; 
-        }
-
-        .nav-links li {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a:not(.btn) { 
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 600;
-            transition: var(--transition);
-            padding: var(--space-xs) 0; 
-            display: inline-block; 
-            white-space: nowrap; 
-        }
-
-        .nav-links a:not(.btn):hover {
-            color: var(--text-primary);
-        }
-
-        .nav-links a.active {
-            color: var(--text-primary);
-            position: relative;
-        }
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -5px; /* Adjust as needed */
-            transform: translateX(-50%);
-            width: 80%;
-            height: 2px;
-            background: var(--aurora-gradient); /* Use your gradient for the underline */
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        /* Hero Text Flow - CSS Tweaks */
-        .hero p.subheadline { 
-            margin-bottom: var(--space-sm) !important; 
-        }
-        .hero p.problem-agitation { 
-            margin-bottom: var(--space-xl) !important; 
-        }
-        .hero .btn-group {
-            margin-top: var(--space-xl); 
-        }
-        /* End of Hero Spacing Tweaks */
-
-        .btn {
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 0.75rem 1.75rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 700;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            white-space: nowrap;
-            text-align: center;
-            cursor: pointer;
-            line-height: 1.2; 
-        }
-
-        .btn-primary {
-            background: var(--aurora-gradient);
-            color: var(--white-color);
-            box-shadow: 0 0.25rem 1.25rem rgba(147, 51, 234, 0.2), 0 0.25rem 1.25rem rgba(6, 182, 212, 0.2);
-            background-size: 200% auto; /* Make gradient wider */
-            transition: background-position 0.4s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Add background-position to transition */
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background-position: right center; /* Shift gradient on hover */
-            box-shadow: 0 0.5rem 2rem rgba(147, 51, 234, 0.3), 0 0.5rem 2rem rgba(6, 182, 212, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* --- Currency Converter Styles --- */
-        .currency-converter-top {
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            padding: var(--space-xs) var(--space-sm);
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-        }
-        .currency-converter-top input[type="number"] {
-            background-color: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            padding: var(--space-xs) 0.25rem; 
-            width: 70px; 
-            text-align: right;
-            border-radius: calc(var(--border-radius) - var(--space-xs));
-            height: calc(1.6em + var(--space-xs)); 
-        }
-        .currency-converter-top input[type="number"]:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px var(--primary-color-focus, rgba(6, 182, 212, 0.5)); 
-        }
-        .currency-converter-top span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        #usd-display-top {
-            font-weight: 600;
-            color: var(--text-primary);
-            min-width: 50px; 
-            text-align: left;
-        }
-
-        .price-inr-display {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: var(--space-xs);
-            min-height: 1.2em; 
-        }
-        
-        /* --- Hero Section --- */
-        .hero {
-            padding: calc(4.5rem + var(--space-6xl)) 0 var(--space-5xl) 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120%;
-            height: 100%;
-            background: var(--aurora-gradient-subtle);
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin: 0 auto var(--space-md) auto;
-            max-width: 50rem; 
-            color: var(--text-primary);
-        }
-        
-        .text-gradient {
-            background: var(--aurora-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p { 
-            font-size: 1.25rem;
-            max-width: 44rem; 
-            margin: 0 auto var(--space-2xl) auto; 
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .hero .btn-group {
-            display: flex;
-            gap: var(--space-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero .btn {
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
-        }
-
-        /* --- Stats Section --- */
-        .stats {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
-            padding: var(--space-xl);
-            margin-top: var(--space-5xl);
-            backdrop-filter: blur(10px);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin: 0 0 var(--space-xs) 0;
-            background: var(--aurora-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-item p {
-            color: var(--text-muted);
-            font-weight: 500;
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        /* --- Section Styling (Global) --- */
-        .section {
-            padding: var(--space-6xl) 0;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: var(--space-4xl);
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin: 0 auto var(--space-md) auto;
-            max-width: 44rem;
-            color: var(--text-primary);
-            line-height: 1.2;
-        }
-
-        .section-title p {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            max-width: 42rem; 
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        .section-content { 
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        .section-content h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-top: var(--space-lg);
-            margin-bottom: var(--space-sm);
-        }
-        .section-content p {
-            margin-bottom: var(--space-md);
-        }
-        .address {
-            font-style: normal;
-            color: var(--text-muted);
-        }
-
-
-        /* --- Features Section --- */
-        .features-grid { 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: var(--space-lg);
-        }
-
-        .feature-card { 
-            background: var(--surface-color);
-            padding: var(--space-xl);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            text-align: left;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            display: flex; 
-            flex-direction: column; 
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            background: linear-gradient(135deg, rgba(22, 27, 39, 0.6) 0%, var(--aurora-gradient-subtle) 100%); /* Mix surface with subtle aurora */
-            border-color: rgba(147, 51, 234, 0.6);
-            box-shadow: 0 0.5rem 2.5rem rgba(0, 0, 0, 0.3), 0 0.5rem 2.5rem rgba(147, 51, 234, 0.15);
-        }
-        
-        .feature-card .icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--space-lg);
-            color: var(--text-primary);
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 var(--space-sm) 0; 
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-        
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin: 0;
-            line-height: 1.5;
-            flex-grow: 1; 
-        }
-
-        /* --- Key Strengths Section --- */
-        #key-strengths {
-            background: var(--surface-color);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .strengths-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-2xl);
-        }
-
-        .strength-item {
-            text-align: center;
-        }
-
-        .strength-item .icon { 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-            width: 3.5rem; 
-            height: 3.5rem;
-            border-radius: 50%;
-            background: var(--aurora-gradient);
-        }
-         .strength-item .icon svg {
-            width: 1.75rem;
-            height: 1.75rem;
-        }
-
-        .strength-item h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin: 0 0 var(--space-xs) 0;
-            color: var(--text-primary);
-        }
-        .strength-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* --- Pricing Section --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-2xl);
-            max-width: 58rem; 
-            margin: 0 auto;
-        }
-
-        @media (min-width: 769px) { 
-            .pricing-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        .pricing-card {
-            background: var(--surface-color);
-            padding: var(--space-xl); 
-            border-radius: var(--border-radius-lg);
-            text-align: center;
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            height: 100%; 
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            border-radius: var(--border-radius-lg);
-            padding: 1px;
-            background: var(--aurora-gradient);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            z-index: 0;
-        }
-        .pricing-card > * {
-            position: relative; 
-            z-index: 1;
-        }
-        
-        .pricing-card h3 { 
-            font-size: 1.75rem; 
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0 0 var(--space-md) 0;
-        }
-        
-        .price {
-            font-size: 3rem; 
-            font-weight: 800;
-            margin: 0 0 var(--space-xs) 0;
-            background: var(--aurora-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-            min-height: 3rem; 
-        }
-
-        .price span { 
-            font-size: 1.1rem; 
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-        .price-cycle { 
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            display: block;
-            margin-top: -var(--space-xs); 
-            margin-bottom: var(--space-sm);
-        }
-
-
-        .pricing-card .description { 
-            color: var(--text-muted);
-            margin: 0 0 var(--space-lg) 0;
-            font-size: 1rem;
-            min-height: 2.5em; 
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            font-size: 1.1rem;
-            padding: 1rem;
-            margin-top: auto; 
-        }
-        
-        .pricing-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 var(--space-lg) 0; 
-            text-align: left;
-            flex-grow: 1; 
-        }
-        
-        .pricing-features li {
-            margin-bottom: var(--space-sm);
-            font-weight: 500;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-sm);
-            font-size: 0.95rem; 
-        }
-
-        .pricing-features li:last-child {
-            margin-bottom: 0;
-        }
-        
-        .pricing-features li::before {
-            content: '✓';
-            background: var(--aurora-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px; 
-        }
-
-        /* Billing Toggle Switch */
-        .billing-toggle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: var(--space-lg);
-            gap: var(--space-sm);
-            background-color: rgba(22, 27, 39, 0.7); 
-            padding: var(--space-xs);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-        }
-        .billing-toggle-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: calc(var(--border-radius) - var(--space-xs));
-            transition: var(--transition);
-        }
-        .billing-toggle-label.active {
-            color: var(--white-color);
-            background: var(--aurora-gradient);
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(147, 51, 234, 0.2);
-        }
-        .billing-toggle-label .save-badge {
-            font-size: 0.75rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: var(--space-xs);
-            font-weight: 500;
-            display: inline-block;
-            border: 1px solid var(--white-color); 
-        }
-        .billing-toggle-label:not(.active) .save-badge {
-            opacity: 0.7;
-            border-color: var(--text-muted);
-            color: var(--text-muted);
-        }
-
-
-        /* --- Testimonials Section --- */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .testimonial-card {
-            background: var(--surface-color);
-            padding: var(--space-xl);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            transition: var(--transition); /* Add transition for hover effect */
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            background: linear-gradient(135deg, rgba(22, 27, 39, 0.6) 0%, var(--aurora-gradient-subtle) 100%);
-            border-color: rgba(147, 51, 234, 0.6);
-            box-shadow: 0 0.5rem 2.5rem rgba(0, 0, 0, 0.3), 0 0.5rem 2.5rem rgba(147, 51, 234, 0.15);
+        :root {
+            /* Palette */
+            --bg-color: #010313;
+            --surface-color: rgba(22, 27, 39, 0.5);
+            --border-color: rgba(100, 116, 139, 0.3);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --white-color: #ffffff;
+            --aurora-gradient: linear-gradient(90deg, #9333ea, #06b6d4);
+            --aurora-gradient-subtle: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(6, 182, 212, 0.1));
+            
+            /* Sizing & Radius */
+            --border-radius: 1rem; /* 16px */
+            --border-radius-lg: 1.5rem; /* 24px */
+            --transition: all 0.2s ease-in-out;
+            
+            /* Consistent Spacing Scale (8px grid) */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 1rem;     /* 16px */
+            --space-md: 1.5rem;   /* 24px */
+            --space-lg: 2rem;     /* 32px */
+            --space-xl: 2.5rem;   /* 40px */
+            --space-2xl: 3rem;    /* 48px */
+            --space-3xl: 4rem;    /* 64px */
+            --space-4xl: 5rem;    /* 80px */
+            --space-5xl: 6rem;    /* 96px */
+            --space-6xl: 8rem;    /* 128px */
         }
 
-        .testimonial-content {
-            font-style: italic;
-            color: var(--text-secondary);
-            margin: 0 0 var(--space-lg) 0;
-            font-size: 1.125rem;
-            line-height: 1.6;
-            border-left: 2px solid var(--border-color); 
-            padding-left: var(--space-md);
-        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 4.5rem; /* Offset for fixed header height */
+        }
 
-        .author-avatar img {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
-        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 1px 1px, rgba(100, 116, 139, 0.1) 1px, transparent 0);
+            background-size: 2rem 2rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-        .author-info h4 {
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0;
-        }
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at var(--x) var(--y), rgba(147, 51, 234, 0.15) 0%, rgba(6, 182, 212, 0.15) 20%, transparent 40%);
+        }
 
-        .author-info p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            margin: 0;
-        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
 
-        /* --- FAQ Section --- */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* --- Header & Navigation --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(1, 3, 19, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+        }
 
-        .faq-item {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            margin-bottom: var(--space-sm);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-        
-        .faq-item:hover {
-            border-color: rgba(147, 51, 234, 0.5);
-        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            background: var(--aurora-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            flex-shrink: 0; 
+            margin-right: var(--space-lg); 
+        }
 
-        .faq-question {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: var(--space-lg);
-            text-align: left;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 1.125rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-        }
-        
-        .faq-answer p {
-             padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
-             margin: 0;
-             color: var(--text-muted);
-             line-height: 1.6;
-        }
+        .nav-content-right { 
+            display: flex;
+            align-items: center;
+            gap: var(--space-md); 
+        }
+        
+        .nav-center { 
+            display: flex;
+            align-items: center;
+            gap: var(--space-md); 
+        }
 
-        .faq-item.active .faq-answer {
-            max-height: 300px; 
-        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-md); 
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; 
+        }
 
-        .faq-icon {
-            transition: var(--transition);
-        }
+        .nav-links li {
+            display: flex;
+            align-items: center;
+        }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
+        .nav-links a:not(.btn) { 
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: var(--space-xs) 0; 
+            display: inline-block; 
+            white-space: nowrap; 
+        }
 
-        /* --- About Us Section --- */
-        #about-us .section-title p {
-            max-width: 45rem; 
-        }
+        .nav-links a:not(.btn):hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Text Flow - CSS Tweaks */
+        .hero p.subheadline { 
+            margin-bottom: var(--space-sm) !important; 
+        }
+        .hero p.problem-agitation { 
+            margin-bottom: var(--space-xl) !important; 
+        }
+        .hero .btn-group {
+            margin-top: var(--space-xl); 
+        }
+        /* End of Hero Spacing Tweaks */
+
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            white-space: nowrap;
+            text-align: center;
+            cursor: pointer;
+            line-height: 1.2; 
+        }
+
+        .btn-primary {
+            background: var(--aurora-gradient);
+            color: var(--white-color);
+            box-shadow: 0 0.25rem 1.25rem rgba(147, 51, 234, 0.2), 0 0.25rem 1.25rem rgba(6, 182, 212, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 2rem rgba(147, 51, 234, 0.3), 0 0.5rem 2rem rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- Currency Converter Styles --- */
+        .currency-converter-top {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+        }
+        .currency-converter-top input[type="number"] {
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            padding: var(--space-xs) 0.25rem; 
+            width: 70px; 
+            text-align: right;
+            border-radius: calc(var(--border-radius) - var(--space-xs));
+            height: calc(1.6em + var(--space-xs)); 
+        }
+        .currency-converter-top input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color-focus, rgba(6, 182, 212, 0.5)); 
+        }
+        .currency-converter-top span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        #usd-display-top {
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 50px; 
+            text-align: left;
+        }
+
+        .price-inr-display {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+            min-height: 1.2em; 
+        }
+        
+        /* --- Hero Section --- */
+        .hero {
+            padding: calc(4.5rem + var(--space-6xl)) 0 var(--space-5xl) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 100%;
+            background: var(--aurora-gradient-subtle);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin: 0 auto var(--space-md) auto;
+            max-width: 50rem; 
+            color: var(--text-primary);
+        }
+        
+        .text-gradient {
+            background: var(--aurora-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { 
+            font-size: 1.25rem;
+            max-width: 44rem; 
+            margin: 0 auto var(--space-2xl) auto; 
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .hero .btn-group {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* --- Stats Section --- */
+        .stats {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin-top: var(--space-5xl);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0 0 var(--space-xs) 0;
+            background: var(--aurora-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Section Styling (Global) --- */
+        .section {
+            padding: var(--space-6xl) 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 auto var(--space-md) auto;
+            max-width: 44rem;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .section-title p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 42rem; 
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .section-content { 
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .section-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+        }
+        .section-content p {
+            margin-bottom: var(--space-md);
+        }
+        .address {
+            font-style: normal;
+            color: var(--text-muted);
+        }
 
 
-        /* --- CTA Section --- */
-        #cta {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
-            margin: var(--space-6xl) auto;
-            max-width: 1200px; 
-            padding: var(--space-3xl) var(--space-md); 
-        }
+        /* --- Features Section --- */
+        .features-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: var(--space-lg);
+        }
 
-        #cta .section-title {
-            margin-bottom: 0;
-        }
+        .feature-card { 
+            background: var(--surface-color);
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            text-align: left;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+        }
 
-        #cta .section-title h2 {
-            margin-bottom: var(--space-sm);
-        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(147, 51, 234, 0.5);
+            box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+        }
 
-        #cta .section-title p {
-            margin-bottom: var(--space-lg);
-        }
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 var(--space-sm) 0; 
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.5;
+            flex-grow: 1; 
+        }
 
-        #cta .btn {
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
-        }
+        /* --- Key Strengths Section --- */
+        #key-strengths {
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
 
-        /* --- Footer --- */
-        footer {
-            padding: var(--space-3xl) 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            margin-top: var(--space-6xl);
-        }
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-2xl);
+        }
 
-        footer p {
-            margin: 0;
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
+        .strength-item {
+            text-align: center;
+        }
 
-        /* --- Mobile Navigation --- */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-shrink: 0; 
-        }
+        .strength-item .icon { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+            width: 3.5rem; 
+            height: 3.5rem;
+            border-radius: 50%;
+            background: var(--aurora-gradient);
+        }
+         .strength-item .icon svg {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
 
-        .hamburger div {
-            width: 25px;
-            height: 2px;
-            background-color: var(--text-secondary);
-            margin: 6px 0;
-            transition: var(--transition);
-        }
+        .strength-item h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 0 0 var(--space-xs) 0;
+            color: var(--text-primary);
+        }
+        .strength-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
 
-        /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 1024px) { /* Medium Desktops / Tablets Large */
-            .currency-converter-top {
-                display: none; 
-            }
-            .nav-center { 
-                flex-grow: 1; 
-                justify-content: flex-start; /* Align links to the start of nav-center */
-            }
-            .nav-content-right {
-                 flex-grow: 1; 
-                 justify-content: flex-end; 
-            }
-            .nav-links {
-                gap: var(--space-sm); 
-            }
-        }
+        /* --- Pricing Section --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            max-width: 58rem; 
+            margin: 0 auto;
+        }
 
-        @media (max-width: 992px) { /* Smaller Tablets */
-             .nav-links {
-                gap: var(--space-xs); 
-            }
-            .nav-center {
-                gap: var(--space-sm); 
-            }
-            .nav-content-right {
-                gap: var(--space-sm);
-            }
-        }
-        
-        @media (max-width: 768px) { /* True Tablet and Mobile */
-             .pricing-grid {
-                grid-template-columns: 1fr; 
-                max-width: 28rem; 
-             }
-            .nav-content-right > a.btn-primary.nav-main-cta { 
-                 display: none; 
-            }
-            .nav-center { 
-                display: none; /* Hide nav-center as links move to flyout */
-            }
-             .nav-content-right { 
-                /* This div is effectively empty on nav, just before hamburger */
-                /* It can be removed or hidden too if not needed for structure */
-                /* For now, it will just be an empty flex item */
-             }
-            .hamburger { 
-                display: block; 
-                margin-left: auto; /* Push hamburger to the right if nav-content-right is empty/gone */
-            }
-             nav { /* Ensure logo and hamburger are spaced if nav-content-right is effectively gone */
-                justify-content: space-between;
-             }
+        @media (min-width: 769px) { 
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .pricing-card {
+            background: var(--surface-color);
+            padding: var(--space-xl); 
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            border-radius: var(--border-radius-lg);
+            padding: 1px;
+            background: var(--aurora-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 0;
+        }
+        .pricing-card > * {
+            position: relative; 
+            z-index: 1;
+        }
+        
+        .pricing-card h3 { 
+            font-size: 1.75rem; 
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 var(--space-md) 0;
+        }
+        
+        .price {
+            font-size: 3rem; 
+            font-weight: 800;
+            margin: 0 0 var(--space-xs) 0;
+            background: var(--aurora-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            min-height: 3rem; 
+        }
+
+        .price span { 
+            font-size: 1.1rem; 
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .price-cycle { 
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            display: block;
+            margin-top: -var(--space-xs); 
+            margin-bottom: var(--space-sm);
+        }
 
 
-            .nav-links { /* Mobile flyout menu styles */
-                position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
-            }
-            .nav-links.nav-active { right: 0; }
-            .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-            .hamburger.toggle .line2 { opacity: 0; }
-            .hamburger.toggle .line3 { transform: rotate(45deg) translate(-6px, -6px); }
-            .hero { padding: calc(4.5rem + var(--space-5xl)) 0 var(--space-5xl) 0; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.125rem; }
-            .hero .btn-group { flex-direction: column; align-items: center; }
-            .section { padding: var(--space-5xl) 0; }
-            .section-title { margin-bottom: var(--space-3xl); }
-            .section-title h2 { font-size: 2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .features-grid { grid-template-columns: 1fr; } 
-            .strengths-grid { grid-template-columns: 1fr; }
-            .nav-links .btn-primary { display: inline-flex !important; margin-top: var(--space-md);} 
-        }
-        
-        @media (max-width: 480px) { /* Mobile specific */
-            .container { padding: 0 var(--space-sm); }
-            body { background-size: 1.5rem 1.5rem; }
-            .hero { padding: calc(4.5rem + var(--space-4xl)) 0 var(--space-4xl) 0; }
-            .hero h1 { font-size: 2rem; max-width: 100%;} 
-            .hero p { max-width: 100%;}
-            .section { padding: var(--space-4xl) 0; }
-            .section-title h2 { font-size: 1.75rem; }
-            .pricing-card { padding: var(--space-lg); }
-            .price { font-size: 2.5rem; }
-            .feature-card { padding: var(--space-lg); }
-            .nav-links { width: 75%; } 
-            .billing-toggle-container { flex-direction: column; gap: var(--space-xs); }
-            .billing-toggle-label { width: 100%; text-align: center; }
-        }
-    </style>
+        .pricing-card .description { 
+            color: var(--text-muted);
+            margin: 0 0 var(--space-lg) 0;
+            font-size: 1rem;
+            min-height: 2.5em; 
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 1rem;
+            margin-top: auto; 
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-lg) 0; 
+            text-align: left;
+            flex-grow: 1; 
+        }
+        
+        .pricing-features li {
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            font-size: 0.95rem; 
+        }
+
+        .pricing-features li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            background: var(--aurora-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px; 
+        }
+
+        /* Billing Toggle Switch */
+        .billing-toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            gap: var(--space-sm);
+            background-color: rgba(22, 27, 39, 0.7); 
+            padding: var(--space-xs);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        .billing-toggle-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: calc(var(--border-radius) - var(--space-xs));
+            transition: var(--transition);
+        }
+        .billing-toggle-label.active {
+            color: var(--white-color);
+            background: var(--aurora-gradient);
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(147, 51, 234, 0.2);
+        }
+        .billing-toggle-label .save-badge {
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: var(--space-xs);
+            font-weight: 500;
+            display: inline-block;
+            border: 1px solid var(--white-color); 
+        }
+        .billing-toggle-label:not(.active) .save-badge {
+            opacity: 0.7;
+            border-color: var(--text-muted);
+            color: var(--text-muted);
+        }
+
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .testimonial-card {
+            background: var(--surface-color);
+            padding: var(--space-xl);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0 0 var(--space-lg) 0;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            border-left: 2px solid var(--border-color); 
+            padding-left: var(--space-md);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .author-avatar img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+        }
+
+        .author-info h4 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        /* --- FAQ Section --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--space-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            border-color: rgba(147, 51, 234, 0.5);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: var(--space-lg);
+            text-align: left;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        
+        .faq-answer p {
+             padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+             margin: 0;
+             color: var(--text-muted);
+             line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px; 
+        }
+
+        .faq-icon {
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* --- About Us Section --- */
+        #about-us .section-title p {
+            max-width: 45rem; 
+        }
+
+
+        /* --- CTA Section --- */
+        #cta {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            margin: var(--space-6xl) auto;
+            max-width: 1200px; 
+            padding: var(--space-3xl) var(--space-md); 
+        }
+
+        #cta .section-title {
+            margin-bottom: 0;
+        }
+
+        #cta .section-title h2 {
+            margin-bottom: var(--space-sm);
+        }
+
+        #cta .section-title p {
+            margin-bottom: var(--space-lg);
+        }
+
+        #cta .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: var(--space-6xl);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Mobile Navigation --- */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-shrink: 0; 
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-secondary);
+            margin: 6px 0;
+            transition: var(--transition);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) { /* Medium Desktops / Tablets Large */
+            .currency-converter-top {
+                display: none; 
+            }
+            .nav-center { 
+                flex-grow: 1; 
+                justify-content: flex-start; /* Align links to the start of nav-center */
+            }
+            .nav-content-right {
+                 flex-grow: 1; 
+                 justify-content: flex-end; 
+            }
+            .nav-links {
+                gap: var(--space-sm); 
+            }
+        }
+
+        @media (max-width: 992px) { /* Smaller Tablets */
+             .nav-links {
+                gap: var(--space-xs); 
+            }
+            .nav-center {
+                gap: var(--space-sm); 
+            }
+            .nav-content-right {
+                gap: var(--space-sm);
+            }
+        }
+        
+        @media (max-width: 768px) { /* True Tablet and Mobile */
+             .pricing-grid {
+                grid-template-columns: 1fr; 
+                max-width: 28rem; 
+             }
+            .nav-content-right > a.btn-primary.nav-main-cta { 
+                 display: none; 
+            }
+            .nav-center { 
+                display: none; /* Hide nav-center as links move to flyout */
+            }
+             .nav-content-right { 
+                /* This div is effectively empty on nav, just before hamburger */
+                /* It can be removed or hidden too if not needed for structure */
+                /* For now, it will just be an empty flex item */
+             }
+            .hamburger { 
+                display: block; 
+                margin-left: auto; /* Push hamburger to the right if nav-content-right is empty/gone */
+            }
+             nav { /* Ensure logo and hamburger are spaced if nav-content-right is effectively gone */
+                justify-content: space-between;
+             }
+
+
+            .nav-links { /* Mobile flyout menu styles */
+                position: fixed; right: -100%; top: 4.5rem; background-color: rgba(1, 3, 19, 0.95); height: calc(100vh - 4.5rem); width: 60%; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: var(--space-2xl); gap: var(--space-lg); transition: var(--transition); border-left: 1px solid var(--border-color); backdrop-filter: blur(12px);
+            }
+            .nav-links.nav-active { right: 0; }
+            .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .hamburger.toggle .line2 { opacity: 0; }
+            .hamburger.toggle .line3 { transform: rotate(45deg) translate(-6px, -6px); }
+            .hero { padding: calc(4.5rem + var(--space-5xl)) 0 var(--space-5xl) 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.125rem; }
+            .hero .btn-group { flex-direction: column; align-items: center; }
+            .section { padding: var(--space-5xl) 0; }
+            .section-title { margin-bottom: var(--space-3xl); }
+            .section-title h2 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr; } 
+            .strengths-grid { grid-template-columns: 1fr; }
+            .nav-links .btn-primary { display: inline-flex !important; margin-top: var(--space-md);} 
+        }
+        
+        @media (max-width: 480px) { /* Mobile specific */
+            .container { padding: 0 var(--space-sm); }
+            body { background-size: 1.5rem 1.5rem; }
+            .hero { padding: calc(4.5rem + var(--space-4xl)) 0 var(--space-4xl) 0; }
+            .hero h1 { font-size: 2rem; max-width: 100%;} 
+            .hero p { max-width: 100%;}
+            .section { padding: var(--space-4xl) 0; }
+            .section-title h2 { font-size: 1.75rem; }
+            .pricing-card { padding: var(--space-lg); }
+            .price { font-size: 2.5rem; }
+            .feature-card { padding: var(--space-lg); }
+            .nav-links { width: 75%; } 
+            .billing-toggle-container { flex-direction: column; gap: var(--space-xs); }
+            .billing-toggle-label { width: 100%; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-    <div class="spotlight"></div>
+    <div class="spotlight"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">QuickStrat</a>
-                <div class="nav-content-right">
-                    <div class="nav-center"> 
-                        <ul class="nav-links" id="navLinks">
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                            <li><a href="#testimonials">Reviews</a></li>
-                            <li><a href="#about-us">About Us</a></li>
-                            <li><a href="#faq">FAQ</a></li>
-                            <li><a href="https://contentstrategy.onrender.com/" class="btn btn-primary nav-main-cta">Get My 10-Min Strategy</a></li>
-                        </ul>
-                        <div class="currency-converter-top">
-                            <input type="number" id="inr-input-top" placeholder="INR" aria-label="INR Amount">
-                            <span>INR ≈</span>
-                            <span id="usd-display-top">$0.00</span>
-                            <span>USD</span>
-                        </div>
-                    </div>
-                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary nav-main-cta">Get My 10-Min Strategy</a>
-                </div>
-                <div class="hamburger" id="hamburger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <header class="main-header" id="mainHeader">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">QuickStrat</a>
+                <div class="nav-content-right">
+                    <div class="nav-center"> 
+                        <ul class="nav-links" id="navLinks">
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#testimonials">Reviews</a></li>
+                            <li><a href="#about-us">About Us</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="https://contentstrategy.onrender.com/" class="btn btn-primary" style="display: none;">Get My 10-Min Strategy</a></li>
+                        </ul>
+                        <div class="currency-converter-top">
+                            <input type="number" id="inr-input-top" placeholder="INR" aria-label="INR Amount">
+                            <span>INR ≈</span>
+                            <span id="usd-display-top">$0.00</span>
+                            <span>USD</span>
+                        </div>
+                    </div>
+                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary nav-main-cta">Get My 10-Min Strategy</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <main>
-        <section class="hero">
-        <div class="container">
-            <h1>End Content Chaos. Get a Winning Strategy in <span class="text-gradient">10 Minutes</span>.</h1>
-            <p class="subheadline">Unleash powerful, data-driven content plans and AI-crafted drafts in minutes, not months. Skip the $5,000 agency fees and finally outrank competitors.</p>
-            <p class="problem-agitation">Stuck in content planning paralysis? Endless ideas, zero direction? QuickStrat transforms your struggle into consistent, high-performing content that drives real business results.</p>
-            
-            <div class="btn-group">
-                <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Get Your Custom Strategy Now</a>
-                <a href="#features" class="btn btn-secondary">Explore Features & Benefits</a>
-            </div>
-            
-            <div class="hero-workflow-video" style="margin: var(--space-2xl) auto; /* Centers the div if page is wider than max-width */ max-width: 60rem; /* Defines the 'regular size' max width for the video container */ text-align: center; /* Centers the video if its actual width is less than this div */">
-                <video src="QuickStrat-vid.mp4" 
-                       autoplay 
-                       loop 
-                       muted 
-                       playsinline 
-                       style="max-width: 100%; /* Ensures video is responsive within its container */
-                              height: auto; /* Maintains aspect ratio */
-                              display: inline-block; /* Allows text-align on parent to center it */
-                              border-radius: var(--border-radius); 
-                              border: 1px solid var(--border-color); 
-                              box-shadow: 0 0.25rem 1.5rem rgba(0,0,0,0.15);"
-                       aria-label="QuickStrat Workflow Demo Video">
-                    Your browser does not support the video tag. </video>
-            </div>
-                <div class="stats">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Businesses Who've Eliminated Content Guesswork</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>100%</h3>
-                            <p>Customer Satisfaction</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>10 Mins</h3>
-                            <p>From Zero to Full Strategy</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>AI</h3>
-                            <p>Driven Insights</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main>
+        <section class="hero">
+        <div class="container">
+            <h1>Generate a Complete Content Strategy in <span class="text-gradient">10 Minutes</span> (That Would Take Agencies Weeks to Deliver)</h1>
+            <p class="subheadline">Stop staring at blank content calendars and guessing what to post. Get a data-driven strategy and AI-generated content drafts that actually convert - without the <span class="text-gradient">$5,000 consultant fee</span>.</p>
+            <p class="problem-agitation">You know you need a content strategy. But every time you sit down to plan, you're overwhelmed by endless possibilities and zero direction. Meanwhile, your competitors are posting consistently while you're stuck in planning paralysis...</p>
+            
+            <div class="btn-group">
+                <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Get My 10-Min Strategy & Content Plan</a>
+                <a href="#features" class="btn btn-secondary">Explore Benefits</a>
+            </div>
+            
+            <div class="hero-workflow-video" style="margin: var(--space-2xl) auto; /* Centers the div if page is wider than max-width */ max-width: 60rem; /* Defines the 'regular size' max width for the video container */ text-align: center; /* Centers the video if its actual width is less than this div */">
+                <video src="QuickStrat-vid.mp4" 
+                       autoplay 
+                       loop 
+                       muted 
+                       playsinline 
+                       style="max-width: 100%; /* Ensures video is responsive within its container */
+                              height: auto; /* Maintains aspect ratio */
+                              display: inline-block; /* Allows text-align on parent to center it */
+                              border-radius: var(--border-radius); 
+                              border: 1px solid var(--border-color); 
+                              box-shadow: 0 0.25rem 1.5rem rgba(0,0,0,0.15);"
+                       aria-label="QuickStrat Workflow Demo Video">
+                    Your browser does not support the video tag. </video>
+            </div>
+                <div class="stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Businesses Who've Eliminated Content Guesswork</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Customer Satisfaction</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10 Mins</h3>
+                            <p>From Zero to Full Strategy</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>AI</h3>
+                            <p>Driven Insights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="features" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Everything You Need, Intelligently Automated</h2>
-                    <p>Discover how QuickStrat empowers you to streamline your content marketing from initial idea to final publication, effortlessly.</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h8"></path><path d="M8 18h5"></path></svg>
-                        </div>
-                        <h3>Get a Month of AI-Crafted Content Drafts & Ideas</h3>
-                        <p>Overcome writer's block instantly. Receive a full month of diverse, AI-generated content drafts and strategic ideas, ready for your review and publishing.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 11a3 3 0 100-6 3 3 0 000 6z"></path><path d="M12 14c-2.76 0-5 1.34-5 3v1h10v-1c0-1.66-2.24-3-5-3z"></path></svg>
-                        </div>
-                        <h3>Know Exactly Which Platforms Will Drive YOUR Business Results</h3>
-                        <p>No more wasting time on channels that don't deliver. Receive data-informed recommendations for the platforms where your target audience is most active and receptive.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 10.5c.5-2.5 2-4 4.5-4.5M13.5 10.5c.5-2.5 2-4 4.5-4.5M10 20.5c0-2 .5-3.5 1.5-5M18.5 2.5c0 2.5-1 4.5-2.5 6M20.5 10c-2 0-3.5-.5-5-1.5M2.5 18.5c2.5 0 4.5-1 6-2.5"></path><path d="M2.5 2.5C7.5 7.5 15 15 21.5 21.5"></path></svg>
-                        </div>
-                        <h3>Never Wonder 'What Should I Post Today?' Again</h3>
-                        <p>Eliminate daily content indecision. Our AI generates a clear, actionable content calendar, so you're always prepared with compelling posts.</p>
-                    </div>
-                    <div class="feature-card"> 
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        </div>
-                        <h3>Detailed Content Planning</h3>
-                        <p>Get 8+ blog post ideas with SEO-optimized titles, target keywords, and content notes. Plus, 16+ repurposed LinkedIn posts, newsletter segments, & an organized calendar.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                        </div>
-                        <h3>AI Content Generation</h3>
-                        <p>Generate complete, publication-ready blog posts in one click. Easily copy the SEO-focused content with smart keyword integration.</p>
-                        </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline><line x1="12" y1="18" x2="12" y2="18.01"></line><path d="m15 3-2.5 2.5"></path><path d="m15 21 2.5-2.5"></path><path d="m3 9 2.5-2.5"></path><path d="M21 9l-2.5-2.5"></path></svg>
-                        </div>
-                        <h3>Visual Content Suggestions</h3>
-                        <p>Enhance your posts with curated stock photo recommendations from Unsplash and relevant video suggestions from Pexels.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="features" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Everything You Need, Intelligently Automated</h2>
+                    <p>Discover how QuickStrat empowers you to streamline your content marketing from initial idea to final publication, effortlessly.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h8"></path><path d="M8 18h5"></path></svg>
+                        </div>
+                        <h3>Get a Month of AI-Crafted Content Drafts & Ideas</h3>
+                        <p>Overcome writer's block instantly. Receive a full month of diverse, AI-generated content drafts and strategic ideas, ready for your review and publishing.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 11a3 3 0 100-6 3 3 0 000 6z"></path><path d="M12 14c-2.76 0-5 1.34-5 3v1h10v-1c0-1.66-2.24-3-5-3z"></path></svg>
+                        </div>
+                        <h3>Know Exactly Which Platforms Will Drive YOUR Business Results</h3>
+                        <p>No more wasting time on channels that don't deliver. Receive data-informed recommendations for the platforms where your target audience is most active and receptive.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 10.5c.5-2.5 2-4 4.5-4.5M13.5 10.5c.5-2.5 2-4 4.5-4.5M10 20.5c0-2 .5-3.5 1.5-5M18.5 2.5c0 2.5-1 4.5-2.5 6M20.5 10c-2 0-3.5-.5-5-1.5M2.5 18.5c2.5 0 4.5-1 6-2.5"></path><path d="M2.5 2.5C7.5 7.5 15 15 21.5 21.5"></path></svg>
+                        </div>
+                        <h3>Never Wonder 'What Should I Post Today?' Again</h3>
+                        <p>Eliminate daily content indecision. Our AI generates a clear, actionable content calendar, so you're always prepared with compelling posts.</p>
+                    </div>
+                    <div class="feature-card"> 
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        </div>
+                        <h3>Detailed Content Planning</h3>
+                        <p>Get 8+ blog post ideas with SEO-optimized titles, target keywords, and content notes. Plus, 16+ repurposed LinkedIn posts, newsletter segments, & an organized calendar.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        </div>
+                        <h3>AI Content Generation</h3>
+                        <p>Generate complete, publication-ready blog posts in one click. Easily copy the SEO-focused content with smart keyword integration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline><line x1="12" y1="18" x2="12" y2="18.01"></line><path d="m15 3-2.5 2.5"></path><path d="m15 21 2.5-2.5"></path><path d="m3 9 2.5-2.5"></path><path d="M21 9l-2.5-2.5"></path></svg>
+                        </div>
+                        <h3>Visual Content Suggestions</h3>
+                        <p>Enhance your posts with curated stock photo recommendations from Unsplash and relevant video suggestions from Pexels.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="key-strengths" class="section">
-            <div class="container">
-                <div class="section-title">
-                      <h2>Core Advantages of QuickStrat</h2>
-                    <p>Experience the power of a truly integrated and intelligent content marketing solution designed for tangible results.</p>
-                </div>
-                <div class="strengths-grid">
-                    <div class="strength-item">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 2.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S7 6.3 7 5s-1.1-2.5-2.5-2.5zM19.5 2.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S22 6.3 22 5s-1.1-2.5-2.5-2.5zM4.5 16.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S7 20.3 7 19s-1.1-2.5-2.5-2.5zM19.5 16.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S22 20.3 22 19s-1.1-2.5-2.5-2.5z"></path><path d="M7 5h10M7 19h10m-5-14v14"></path></svg></div>
-                        <h3>Comprehensive Strategy</h3>
-                        <p>End-to-end planning from strategic goals to content execution and optimization.</p>
-                    </div>
-                     <div class="strength-item">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 13a3.5 3.5 0 000-7V4.5A4.5 4.5 0 0114 9a3.5 3.5 0 000 7V20a4.5 4.5 0 01-4.5-4.5z"></path><path d="M14.5 11a3.5 3.5 0 000 7V20a4.5 4.5 0 004.5-4.5A3.5 3.5 0 0014.5 11z"></path></svg></div>
-                        <h3>AI Integration</h3>
-                        <p>Leverage artificial intelligence for automated content generation and smart optimization.</p>
-                    </div>
-                     <div class="strength-item">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
-                        <h3>SEO Focus</h3>
-                        <p>Built-in keyword research, competitor analysis, and SEO-focused content creation.</p>
-                    </div>
-                     <div class="strength-item">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 002-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 11-8 0"></path></svg></div>
-                        <h3>Multi-Platform</h3>
-                        <p>Covers blog content, LinkedIn posts, newsletters, and strategies for cross-platform repurposing.</p>
-                    </div>
-                     <div class="strength-item">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg></div>
-                        <h3>Visual Assets</h3>
-                        <p>Integrated image (Unsplash) and video (Pexels) suggestions to enrich content.</p>
-                    </div>
-                     <div class="strength-item">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 10l-4 4 4 4"></path><path d="M10 10h.01"></path><path d="M10 14h.01"></path><path d="M10 18h.01"></path><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"></path></svg></div>
-                        <h3>User-Friendly</h3>
-                        <p>Intuitive interface and a clear, guided workflow from start to finish.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="pricing" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Flexible Pricing for Every Need</h2>
-                    <p>Unlock comprehensive content strategies and AI-generated content at unbeatable value. Choose annual billing to save significantly and ensure continuous content flow.</p> 
-                </div>
-                <p class="text-center urgency-offer" style="margin-bottom: var(--space-md); font-size: 1.1rem; color: var(--text-primary); font-weight: 600;">⚡ Limited Time Offer: Get 50% Off Your First Month!</p>
-                <div class="pricing-grid">
-                    <div class="pricing-card basic-card">
-                        <h3>Basic</h3>
-                        <div class="billing-toggle-container">
-                            <span class="billing-toggle-label active" data-plan="basic" data-cycle="monthly">Monthly</span>
-                            <span class="billing-toggle-label" data-plan="basic" data-cycle="annually">Annually <span class="save-badge" id="basic-save-badge">Save $40</span></span>
-                        </div>
-                        <div class="price" id="basic-price-usd">$20 <span class="price-cycle">/month</span></div>
-                        <div class="price-inr-display" id="basic-price-inr">(Approx. ₹1,667 INR)</div>
-                        <p class="description" id="basic-tokens-description">Enough for 1 Full Strategy & All Content (20,000 Tokens)</p>
-                        <ul class="pricing-features" id="basic-features-list">
-                            <li>Full Strategy Generation</li>
-                            <li>AI Content Creation (8 Blogs, 16 Linkedin posts, 8 Newsletters)</li> 
-                            <li>Audience Personas & Keyword Insights</li>
-                            <li>Access to Free Media Library</li>
-                            <li>Tokens Never Expire</li>
-                        </ul>
-                        <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
-                        <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Start Creating with Basic</a>
-                    </div>
+        <section id="key-strengths" class="section">
+            <div class="container">
+                <div class="section-title">
+                      <h2>Core Advantages of QuickStrat</h2>
+                    <p>Experience the power of a truly integrated and intelligent content marketing solution designed for tangible results.</p>
+                </div>
+                <div class="strengths-grid">
+                    <div class="strength-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 2.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S7 6.3 7 5s-1.1-2.5-2.5-2.5zM19.5 2.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S22 6.3 22 5s-1.1-2.5-2.5-2.5zM4.5 16.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S7 20.3 7 19s-1.1-2.5-2.5-2.5zM19.5 16.5c-1.3 0-2.5 1.1-2.5 2.5s1.2 2.5 2.5 2.5S22 20.3 22 19s-1.1-2.5-2.5-2.5z"></path><path d="M7 5h10M7 19h10m-5-14v14"></path></svg></div>
+                        <h3>Comprehensive Strategy</h3>
+                        <p>End-to-end planning from strategic goals to content execution and optimization.</p>
+                    </div>
+                     <div class="strength-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 13a3.5 3.5 0 000-7V4.5A4.5 4.5 0 0114 9a3.5 3.5 0 000 7V20a4.5 4.5 0 01-4.5-4.5z"></path><path d="M14.5 11a3.5 3.5 0 000 7V20a4.5 4.5 0 004.5-4.5A3.5 3.5 0 0014.5 11z"></path></svg></div>
+                        <h3>AI Integration</h3>
+                        <p>Leverage artificial intelligence for automated content generation and smart optimization.</p>
+                    </div>
+                     <div class="strength-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></div>
+                        <h3>SEO Focus</h3>
+                        <p>Built-in keyword research, competitor analysis, and SEO-focused content creation.</p>
+                    </div>
+                     <div class="strength-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 002-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 11-8 0"></path></svg></div>
+                        <h3>Multi-Platform</h3>
+                        <p>Covers blog content, LinkedIn posts, newsletters, and strategies for cross-platform repurposing.</p>
+                    </div>
+                     <div class="strength-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg></div>
+                        <h3>Visual Assets</h3>
+                        <p>Integrated image (Unsplash) and video (Pexels) suggestions to enrich content.</p>
+                    </div>
+                     <div class="strength-item">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 10l-4 4 4 4"></path><path d="M10 10h.01"></path><path d="M10 14h.01"></path><path d="M10 18h.01"></path><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"></path></svg></div>
+                        <h3>User-Friendly</h3>
+                        <p>Intuitive interface and a clear, guided workflow from start to finish.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pricing" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Flexible Pricing for Every Need</h2>
+                    <p>Choose your plan and get incredible value. Switch to annual billing to save up to 28%! Remember, 20,000 tokens are enough for a full strategy & content cycle.</p> 
+                </div>
+                <p class="text-center urgency-offer" style="margin-bottom: var(--space-md); font-size: 1.1rem; color: var(--text-primary); font-weight: 600;">🔥 Limited Time Offer: Get 50% Off Your First Month!</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card basic-card">
+                        <h3>Basic</h3>
+                        <div class="billing-toggle-container">
+                            <span class="billing-toggle-label active" data-plan="basic" data-cycle="monthly">Monthly</span>
+                            <span class="billing-toggle-label" data-plan="basic" data-cycle="annually">Annually <span class="save-badge" id="basic-save-badge">Save $40</span></span>
+                        </div>
+                        <div class="price" id="basic-price-usd">$20 <span class="price-cycle">/month</span></div>
+                        <div class="price-inr-display" id="basic-price-inr">(Approx. ₹1,667 INR)</div>
+                        <p class="description" id="basic-tokens-description">Enough for 1 Full Strategy & All Content (20,000 Tokens)</p>
+                        <ul class="pricing-features" id="basic-features-list">
+                            <li>Full Strategy Generation</li>
+                            <li>AI Content Creation (8 Blogs, 16 Linkedin posts, 8 Newsletters)</li> 
+                            <li>Audience Personas & Keyword Insights</li>
+                            <li>Access to Free Media Library</li>
+                            <li>Tokens Never Expire</li>
+                        </ul>
+                        <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
+                        <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Start Creating with Basic</a>
+                    </div>
 
-                    <div class="pricing-card pro-card">
-                        <h3>Pro</h3>
-                         <div class="billing-toggle-container">
-                            <span class="billing-toggle-label active" data-plan="pro" data-cycle="monthly">Monthly</span>
-                            <span class="billing-toggle-label" data-plan="pro" data-cycle="annually">Annually <span class="save-badge" id="pro-save-badge">Save $240</span></span>
-                        </div>
-                        <div class="price" id="pro-price-usd">$70 <span class="price-cycle">/month</span></div>
-                        <div class="price-inr-display" id="pro-price-inr">(Approx. ₹5,833 INR)</div>
-                        <p class="description" id="pro-tokens-description">Enough for 5 Full Strategies & All Content (100,000 Tokens)</p>
-                        <ul class="pricing-features" id="pro-features-list">
-                            <li>Everything in Basic, plus:</li>
-                            <li>AI Content Creation (Blogs, Linkedin posts, Newsletters)</li>
-                            <li>Higher Token Limit (100k)</li>
-                            <li>Priority Support</li>
-                            <li>Tokens Never Expire</li>
-                        </ul>
-                        <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
-                        <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Start Creating with Pro</a>
-                    </div>
-                </div>
-                <p class="text-center risk-reversal-main" style="margin-top: var(--space-lg); font-size: 1.1rem;">✅ <strong>Try QuickStrat Risk-Free:</strong> All plans come with a 30-Day Money-Back Guarantee!</p>
-            </div>
-        </section>
+                    <div class="pricing-card pro-card">
+                        <h3>Pro</h3>
+                         <div class="billing-toggle-container">
+                            <span class="billing-toggle-label active" data-plan="pro" data-cycle="monthly">Monthly</span>
+                            <span class="billing-toggle-label" data-plan="pro" data-cycle="annually">Annually <span class="save-badge" id="pro-save-badge">Save $240</span></span>
+                        </div>
+                        <div class="price" id="pro-price-usd">$70 <span class="price-cycle">/month</span></div>
+                        <div class="price-inr-display" id="pro-price-inr">(Approx. ₹5,833 INR)</div>
+                        <p class="description" id="pro-tokens-description">Enough for 5 Full Strategies & All Content (100,000 Tokens)</p>
+                        <ul class="pricing-features" id="pro-features-list">
+                            <li>Everything in Basic, plus:</li>
+                            <li>AI Content Creation (Blogs, Linkedin posts, Newsletters)</li>
+                            <li>Higher Token Limit (100k)</li>
+                            <li>Priority Support</li>
+                            <li>Tokens Never Expire</li>
+                        </ul>
+                        <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
+                        <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Start Creating with Pro</a>
+                    </div>
+                </div>
+                <p class="text-center risk-reversal-main" style="margin-top: var(--space-lg); font-size: 1.1rem;">✅ <strong>Try QuickStrat Risk-Free:</strong> All plans come with a 30-Day Money-Back Guarantee!</p>
+            </div>
+        </section>
 
-        <section id="testimonials" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Don't Just Take Our Word For It</h2>
-                    <p>See what our customers are saying about their new content superpower.</p>
-                </div>
-                  <div class="testimonials-grid">
-                        <div class="testimonial-card">
-                            <p class="testimonial-content">"QuickStrat helped us increase our content output by <strong>300% in the first month</strong>! The AI-generated drafts were a lifesaver and perfectly matched our brand voice."</p>
-                            <div class="testimonial-author">
-                               <div class="author-avatar">
-                                    <img src="https://i.pravatar.cc/48?u=a042581f4e29026702d" alt="Mark L.">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Alex P.</h4>
-                                    <p>Startup Founder</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p class="testimonial-content">"The content strategy we generated with QuickStrat led to <strong>$15K in new leads within just two months</strong>. It wasn't just ideas; it was an actionable plan that delivered real results!"</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://i.pravatar.cc/48?u=a042581f4e29026701d" alt="Emily R.">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Sarah M.</h4>
-                                    <p>Marketing Manager</p>
-                                </div>
-                            </div>
-                    </div>
-            </div>
-        </section>
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Don't Just Take Our Word For It</h2>
+                    <p>See what our customers are saying about their new content superpower.</p>
+                </div>
+                  <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <p class="testimonial-content">"QuickStrat helped us increase our content output by <strong>300% in the first month</strong>! The AI-generated drafts were a lifesaver and perfectly matched our brand voice."</p>
+                            <div class="testimonial-author">
+                               <div class="author-avatar">
+                                    <img src="https://i.pravatar.cc/48?u=a042581f4e29026702d" alt="Mark L.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Alex P.</h4>
+                                    <p>Startup Founder</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-content">"The content strategy we generated with QuickStrat led to <strong>$15K in new leads within just two months</strong>. It wasn't just ideas; it was an actionable plan that delivered real results!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://i.pravatar.cc/48?u=a042581f4e29026701d" alt="Emily R.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah M.</h4>
+                                    <p>Marketing Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
 
-        <section id="about-us" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>About QuickStrat</h2>
-                    <p>Learn more about our mission and how we're revolutionizing content strategy.</p>
-                </div>
-                <div class="section-content">
-                    <p>QuickStrat was born from a simple idea: empower businesses and creators of all sizes to develop impactful content strategies without the usual complexity and high costs. We believe that a strong, data-driven content plan shouldn't be a luxury, but an accessible tool for growth. Our AI-powered platform is designed to be your intelligent partner, guiding you from initial concept to polished, multi-channel content ready to engage your audience.</p>
-                    
-                    <h3>Our Mission</h3>
-                    <p>Our mission is to democratize strategic content creation. We aim to provide an intuitive, efficient, and powerful solution that helps users save time, optimize their marketing efforts, and achieve their content goals with clarity and confidence. We're committed to continuous innovation, ensuring QuickStrat remains at the forefront of AI-driven content strategy generation.</p>
+        <section id="about-us" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About QuickStrat</h2>
+                    <p>Learn more about our mission and how we're revolutionizing content strategy.</p>
+                </div>
+                <div class="section-content">
+                    <p>QuickStrat was born from a simple idea: empower businesses and creators of all sizes to develop impactful content strategies without the usual complexity and high costs. We believe that a strong, data-driven content plan shouldn't be a luxury, but an accessible tool for growth. Our AI-powered platform is designed to be your intelligent partner, guiding you from initial concept to polished, multi-channel content ready to engage your audience.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to democratize strategic content creation. We aim to provide an intuitive, efficient, and powerful solution that helps users save time, optimize their marketing efforts, and achieve their content goals with clarity and confidence. We're committed to continuous innovation, ensuring QuickStrat remains at the forefront of AI-driven content strategy generation.</p>
 
-                    <h3>Operating Address</h3>
-                    <address class="address">
-                        QuickStrat<br>
-                        Mumbai, Maharashtra,<br>
-                        India
-                    </address>
-                </div>
-            </div>
-        </section>
+                    <h3>Operating Address</h3>
+                    <address class="address">
+                        QuickStrat<br>
+                        Mumbai, Maharashtra,<br>
+                        India
+                    </address>
+                </div>
+            </div>
+        </section>
 
-        <section id="faq" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Frequently Asked Questions</h2>
-                </div>
-                <div class="faq-container">
-                     <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How many tokens are needed for one full strategy output?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Typically, 20,000 tokens are more than sufficient for generating one complete strategy cycle (including all AI-generated content drafts for blogs and social media, audience personas, keyword insights, etc.). Our Basic plan is designed around this typical usage for a single, comprehensive strategy.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Can I customize the generated content and strategy?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes! QuickStrat allows you to specify your business details, select target audiences, choose content goals, define a content tone (or provide a sample for style matching), and even input a monthly theme. The AI uses all this to tailor the strategy. Once content is generated, you have full control to edit and refine it.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What's the difference between Monthly and Annual plans?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Monthly plans give you a set number of tokens for that month. Annual plans offer a significant discount (up to 28%!) and provide you with the same number of tokens delivered fresh to your account every month for the entire year. This ensures you always have tokens ready for your content needs at a better overall price.</p>
-                        </div>
-                    </div>
-                     <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Do my tokens expire?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>No, your purchased tokens (whether from a monthly plan or the monthly allotment in an annual plan) do not expire. You can use them whenever you need them, as long as your plan is active for annual recurring tokens.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What is your refund policy?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with QuickStrat within the first 30 days, simply contact us for a full refund. We want you to feel confident trying out our platform.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <div class="container"> 
-             <section id="cta" class="section"> 
-                <div class="section-title">
-                    <h2>Ready to Transform Your Content Workflow?</h2>
-                    <p>Stop guessing and start generating. Get your AI-powered content strategy and high-quality content drafts in minutes.</p>
-                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Launch My Content Strategy!</a>
-                </div>
-            </section>
-        </div>
-    </main>
-    
-    <footer>
-       <div class="container">
-           <p>&copy; <span id="currentYear">2025</span> QuickStrat. All Rights Reserved.</p>
-       </div>
-    </footer>
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-container">
+                     <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How many tokens are needed for one full strategy output?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Typically, 20,000 tokens are more than sufficient for generating one complete strategy cycle (including all AI-generated content drafts for blogs and social media, audience personas, keyword insights, etc.). Our Basic plan is designed around this typical usage for a single, comprehensive strategy.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I customize the generated content and strategy?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! QuickStrat allows you to specify your business details, select target audiences, choose content goals, define a content tone (or provide a sample for style matching), and even input a monthly theme. The AI uses all this to tailor the strategy. Once content is generated, you have full control to edit and refine it.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What's the difference between Monthly and Annual plans?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Monthly plans give you a set number of tokens for that month. Annual plans offer a significant discount (up to 28%!) and provide you with the same number of tokens delivered fresh to your account every month for the entire year. This ensures you always have tokens ready for your content needs at a better overall price.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do my tokens expire?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No, your purchased tokens (whether from a monthly plan or the monthly allotment in an annual plan) do not expire. You can use them whenever you need them, as long as your plan is active for annual recurring tokens.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is your refund policy?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer a 30-day money-back guarantee on all our plans. If you're not satisfied with QuickStrat within the first 30 days, simply contact us for a full refund. We want you to feel confident trying out our platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container"> 
+             <section id="cta" class="section"> 
+                <div class="section-title">
+                    <h2>Ready to Transform Your Content Workflow?</h2>
+                    <p>Stop guessing and start generating. Get your AI-powered content strategy and high-quality content drafts in minutes.</p>
+                    <a href="https://contentstrategy.onrender.com/" class="btn btn-primary">Start Creating Content Now</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+       <div class="container">
+           <p>&copy; <span id="currentYear">2025</span> QuickStrat. All Rights Reserved.</p>
+       </div>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Copyright Year ---
-            const currentYearSpan = document.getElementById('currentYear');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Copyright Year ---
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
 
-            // --- Currency Converter Logic ---
-            const INR_TO_USD_RATE = 0.012; 
+            // --- Currency Converter Logic ---
+            const INR_TO_USD_RATE = 0.012; 
 
-            const inrInputTop = document.getElementById('inr-input-top');
-            const usdDisplayTop = document.getElementById('usd-display-top');
-            
-            function formatCurrencyINR(amount) {
-                return `(Approx. ₹${amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })} INR)`;
-            }
+            const inrInputTop = document.getElementById('inr-input-top');
+            const usdDisplayTop = document.getElementById('usd-display-top');
+            
+            function formatCurrencyINR(amount) {
+                return `(Approx. ₹${amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })} INR)`;
+            }
 
-            function updateTopConverter() {
-                if (inrInputTop && usdDisplayTop) {
-                    const inrAmount = parseFloat(inrInputTop.value);
-                    if (!isNaN(inrAmount) && inrAmount > 0) {
-                        const usdAmount = inrAmount * INR_TO_USD_RATE;
-                        usdDisplayTop.textContent = `$${usdAmount.toFixed(2)}`;
-                    } else if (inrInputTop.value.trim() === '') {
-                         usdDisplayTop.textContent = "$0.00";
-                    } else {
-                        usdDisplayTop.textContent = "$ --";
-                    }
-                }
-            }
+            function updateTopConverter() {
+                if (inrInputTop && usdDisplayTop) {
+                    const inrAmount = parseFloat(inrInputTop.value);
+                    if (!isNaN(inrAmount) && inrAmount > 0) {
+                        const usdAmount = inrAmount * INR_TO_USD_RATE;
+                        usdDisplayTop.textContent = `$${usdAmount.toFixed(2)}`;
+                    } else if (inrInputTop.value.trim() === '') {
+                         usdDisplayTop.textContent = "$0.00";
+                    } else {
+                        usdDisplayTop.textContent = "$ --";
+                    }
+                }
+            }
 
-            if (inrInputTop) {
-                inrInputTop.addEventListener('input', updateTopConverter);
-            }
-            
-            const plans = {
-                basic: {
-                    monthly: { usd: 20, tokens: "Enough for 1 Full Strategy & All Content (20,000 Tokens)", featuresKey: "monthly", priceCycle: "/month" },
-                    annually: { usd: 200, tokens: "Enough for 1 Full Strategy & All Content /month (20,000 Tokens)", featuresKey: "annually", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $40" } 
-                },
-                pro: {
-                    monthly: { usd: 70, tokens: "Enough for 5 Full Strategies & All Content (100,000 Tokens)", featuresKey: "monthly", priceCycle: "/month" },
-                    annually: { usd: 600, tokens: "Enough for 5 Full Strategies & All Content /month (100,000 Tokens)", featuresKey: "annually", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $240" }
-                }
-            };
+            if (inrInputTop) {
+                inrInputTop.addEventListener('input', updateTopConverter);
+            }
+            
+            const plans = {
+                basic: {
+                    monthly: { usd: 20, tokens: "Enough for 1 Full Strategy & All Content (20,000 Tokens)", featuresKey: "monthly", priceCycle: "/month" },
+                    annually: { usd: 200, tokens: "Enough for 1 Full Strategy & All Content /month (20,000 Tokens)", featuresKey: "annually", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $40" } 
+                },
+                pro: {
+                    monthly: { usd: 70, tokens: "Enough for 5 Full Strategies & All Content (100,000 Tokens)", featuresKey: "monthly", priceCycle: "/month" },
+                    annually: { usd: 600, tokens: "Enough for 5 Full Strategies & All Content /month (100,000 Tokens)", featuresKey: "annually", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $240" }
+                }
+            };
 
-            const basicFeatures = { 
-                monthly: [ 
-                    "Full Content Strategy Generation",
-                    "AI-Crafted Content Drafts (8 Blog Posts, 16 Social Posts, 8 Newsletters)", 
+            const basicFeatures = { 
+                monthly: [ 
+                    "Full Strategy Generation",
+                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
                     "Audience Personas & Keyword Insights",
                     "Access to Free Media Library",
                     "Tokens Never Expire"
                 ],
                 annually: [
-                    "Full Content Strategy Generation",
-                    "AI-Crafted Content Drafts (8 Blog Posts, 16 Social Posts, 8 Newsletters)", 
+                    "Full Strategy Generation",
+                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
                     "Audience Personas & Keyword Insights",
                     "Access to Free Media Library",
                     "Tokens Delivered Fresh Every Month",
                     "Tokens Never Expire",
-                    "**Save $40/year (Billed Annually)**"
+                    "Save $40/year (Billed Annually)"
                 ]
             };
-            const proFeatures = { 
+             const proFeatures = { 
                 monthly: [
                     "Everything in Basic, plus:",
-                    "Expanded AI Content Generation Capacity", 
-                    "Higher Token Limit (100k for extensive use)",
-                    "Priority Support for Faster Assistance",
+                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
+                    "Higher Token Limit (100k vs 20k)",
+                    "Priority Support",
                     "Tokens Never Expire"
                 ],
                 annually: [
                     "Everything in Basic, plus:",
-                    "Expanded AI Content Generation Capacity", 
+                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
+                    "Higher Token Limit (100k vs 20k)",
                     "Tokens Delivered Fresh Every Month",
-                    "Higher Token Limit (100k for extensive use)",
-                    "Priority Support for Faster Assistance",
+                    "Priority Support",
                     "Tokens Never Expire",
-                    "**Save $240/year (Billed Annually)**"
+                    "Save $240/year (Billed Annually)"
                 ]
             };
 
 
-            function updatePricingCard(planName, isAnnual) {
-                const planData = plans[planName][isAnnual ? 'annually' : 'monthly'];
-                const usdPriceEl = document.getElementById(`${planName}-price-usd`);
-                const inrPriceEl = document.getElementById(`${planName}-price-inr`);
-                const tokensDescEl = document.getElementById(`${planName}-tokens-description`);
-                const featuresListEl = document.getElementById(`${planName}-features-list`);
-                const saveBadgeEl = document.getElementById(`${planName}-save-badge`);
+            function updatePricingCard(planName, isAnnual) {
+                const planData = plans[planName][isAnnual ? 'annually' : 'monthly'];
+                const usdPriceEl = document.getElementById(`${planName}-price-usd`);
+                const inrPriceEl = document.getElementById(`${planName}-price-inr`);
+                const tokensDescEl = document.getElementById(`${planName}-tokens-description`);
+                const featuresListEl = document.getElementById(`${planName}-features-list`);
+                const saveBadgeEl = document.getElementById(`${planName}-save-badge`);
 
-                if (!usdPriceEl || !inrPriceEl || !tokensDescEl || !featuresListEl) return;
+                if (!usdPriceEl || !inrPriceEl || !tokensDescEl || !featuresListEl) return;
 
-                let displayPrice = planData.usd;
-                let priceCycleText = planData.priceCycle;
+                let displayPrice = planData.usd;
+                let priceCycleText = planData.priceCycle;
 
-                if (isAnnual) {
-                    const effectiveMonthly = planData.usd / 12;
-                    usdPriceEl.innerHTML = `$${effectiveMonthly.toFixed(0)} <span class="price-cycle">${planData.fullPriceCycle || '/month (billed annually)'}</span>`;
-                    inrPriceEl.textContent = formatCurrencyINR(planData.usd / INR_TO_USD_RATE) + " /year";
-                    if(saveBadgeEl) saveBadgeEl.style.display = 'inline-block';
+                if (isAnnual) {
+                    const effectiveMonthly = planData.usd / 12;
+                    usdPriceEl.innerHTML = `$${effectiveMonthly.toFixed(0)} <span class="price-cycle">${planData.fullPriceCycle || '/month (billed annually)'}</span>`;
+                    inrPriceEl.textContent = formatCurrencyINR(planData.usd / INR_TO_USD_RATE) + " /year";
+                    if(saveBadgeEl) saveBadgeEl.style.display = 'inline-block';
 
-                } else {
-                    usdPriceEl.innerHTML = `$${displayPrice} <span class="price-cycle">${priceCycleText}</span>`;
-                    inrPriceEl.textContent = formatCurrencyINR(displayPrice / INR_TO_USD_RATE) + " /month";
-                    if(saveBadgeEl) saveBadgeEl.style.display = 'none';
-                }
-                
-                tokensDescEl.textContent = planData.tokens;
+                } else {
+                    usdPriceEl.innerHTML = `$${displayPrice} <span class="price-cycle">${priceCycleText}</span>`;
+                    inrPriceEl.textContent = formatCurrencyINR(displayPrice / INR_TO_USD_RATE) + " /month";
+                    if(saveBadgeEl) saveBadgeEl.style.display = 'none';
+                }
+                
+                tokensDescEl.textContent = planData.tokens;
 
-                featuresListEl.innerHTML = ''; 
-                const currentFeatures = planName === 'basic' ? basicFeatures[planData.featuresKey] : proFeatures[planData.featuresKey];
-                currentFeatures.forEach(featureText => {
-                    const li = document.createElement('li');
-                    li.innerHTML = featureText; // Use innerHTML to allow bolding
-                    featuresListEl.appendChild(li);
-                });
-            }
-
-            document.querySelectorAll('.billing-toggle-label').forEach(label => {
-                label.addEventListener('click', function() {
-                    const plan = this.dataset.plan;
-                    const cycle = this.dataset.cycle;
-                    const isAnnual = cycle === 'annually';
-
-                    document.querySelectorAll(`.billing-toggle-label[data-plan="${plan}"]`).forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    updatePricingCard(plan, isAnnual);
-                });
-            });
-
-            // Initialize pricing cards correctly
-            const basicMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]');
-            const basicAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]');
-            if (basicMonthlyToggle && basicAnnuallyToggle) {
-                let isBasicAnnualActive = basicAnnuallyToggle.classList.contains('active');
-                if (!isBasicAnnualActive && !basicMonthlyToggle.classList.contains('active')) {
-                    basicMonthlyToggle.classList.add('active'); 
-                    isBasicAnnualActive = false; 
-                } else if (isBasicAnnualActive) {
-                    basicMonthlyToggle.classList.remove('active');
-                } else { 
-                    basicAnnuallyToggle.classList.remove('active');
-                }
-                updatePricingCard('basic', isBasicAnnualActive);
-
-                const basicSaveBadge = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge');
-                if(basicSaveBadge) {
-                   basicSaveBadge.style.display = isBasicAnnualActive ? 'inline-block' : 'none';
-                }
-            }
-
-
-            const proMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]');
-            const proAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]');
-            if (proMonthlyToggle && proAnnuallyToggle) {
-                let isProAnnualActive = proAnnuallyToggle.classList.contains('active');
-                 if (!isProAnnualActive && !proMonthlyToggle.classList.contains('active')) {
-                    proMonthlyToggle.classList.add('active'); 
-                    isProAnnualActive = false;
-                } else if (isProAnnualActive) {
-                    proMonthlyToggle.classList.remove('active');
-                } else { 
-                     proAnnuallyToggle.classList.remove('active');
-                }
-                updatePricingCard('pro', isProAnnualActive);
-
-                const proSaveBadge = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge');
-                 if(proSaveBadge) {
-                    proSaveBadge.style.display = isProAnnualActive ? 'inline-block' : 'none';
-                }
-            }
-
-
-            const spotlight = document.querySelector('.spotlight');
-            if (spotlight) {
-                window.addEventListener('mousemove', (e) => {
-                    spotlight.style.setProperty('--x', e.clientX + 'px');
-                    spotlight.style.setProperty('--y', e.clientY + 'px');
-                });
-            }
-
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            
-            if (hamburger && navLinks) {
-                const navLinkItems = navLinks.querySelectorAll('a');
-                
-                const toggleNav = () => {
-                    navLinks.classList.toggle('nav-active');
-                    hamburger.classList.toggle('toggle');
-                };
-                
-                hamburger.addEventListener('click', toggleNav);
-                
-                navLinkItems.forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('nav-active')) {
-                            if (!link.classList.contains('btn-primary')) { 
-                                toggleNav();
-                            }
-                        }
-                    });
-                });
-            }
-
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                if (question) {
-                    question.addEventListener('click', () => {
-                        const currentlyActive = document.querySelector('.faq-item.active');
-                        if (currentlyActive && currentlyActive !== item) {
-                            currentlyActive.classList.remove('active');
-                            const activeAnswer = currentlyActive.querySelector('.faq-answer');
-                           if(activeAnswer) activeAnswer.style.maxHeight = null;
-                        }
-
-                        item.classList.toggle('active');
-                        const answer = item.querySelector('.faq-answer');
-                        if (answer) {
-                            if (item.classList.contains('active')) {
-                                answer.style.maxHeight = answer.scrollHeight + "px";
-                            } else {
-                                answer.style.maxHeight = null;
-                            }
-                        }
-                    });
-                }
-            });
-
-            // --- Active Nav Link on Scroll ---
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a:not(.btn)'); // Exclude buttons
-
-            const highlightNavLink = () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    // Adjusted offset for fixed header and a bit more buffer
-                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3)) {
-                        current = section.getAttribute('id');
-                    }
+                featuresListEl.innerHTML = ''; 
+                const currentFeatures = planName === 'basic' ? basicFeatures[planData.featuresKey] : proFeatures[planData.featuresKey];
+                currentFeatures.forEach(featureText => {
+                    const li = document.createElement('li');
+                    li.textContent = featureText;
+                    featuresListEl.appendChild(li);
                 });
+            }
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
-                        link.classList.add('active');
-                    }
+            document.querySelectorAll('.billing-toggle-label').forEach(label => {
+                label.addEventListener('click', function() {
+                    const plan = this.dataset.plan;
+                    const cycle = this.dataset.cycle;
+                    const isAnnual = cycle === 'annually';
+
+                    document.querySelectorAll(`.billing-toggle-label[data-plan="${plan}"]`).forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    updatePricingCard(plan, isAnnual);
                 });
-            };
+            });
 
-            window.addEventListener('scroll', highlightNavLink);
-            window.addEventListener('load', highlightNavLink); // Initial call on load
-        });
-    </script>
+            // Initialize pricing cards correctly
+            const basicMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]');
+            const basicAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]');
+            if (basicMonthlyToggle && basicAnnuallyToggle) {
+                let isBasicAnnualActive = basicAnnuallyToggle.classList.contains('active');
+                if (!isBasicAnnualActive && !basicMonthlyToggle.classList.contains('active')) {
+                    basicMonthlyToggle.classList.add('active'); 
+                    isBasicAnnualActive = false; 
+                } else if (isBasicAnnualActive) {
+                    basicMonthlyToggle.classList.remove('active');
+                } else { 
+                    basicAnnuallyToggle.classList.remove('active');
+                }
+                updatePricingCard('basic', isBasicAnnualActive);
+
+                const basicSaveBadge = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge');
+                if(basicSaveBadge) {
+                   basicSaveBadge.style.display = isBasicAnnualActive ? 'inline-block' : 'none';
+                }
+            }
+
+
+            const proMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]');
+            const proAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]');
+            if (proMonthlyToggle && proAnnuallyToggle) {
+                let isProAnnualActive = proAnnuallyToggle.classList.contains('active');
+                 if (!isProAnnualActive && !proMonthlyToggle.classList.contains('active')) {
+                    proMonthlyToggle.classList.add('active'); 
+                    isProAnnualActive = false;
+                } else if (isProAnnualActive) {
+                    proMonthlyToggle.classList.remove('active');
+                } else { 
+                     proAnnuallyToggle.classList.remove('active');
+                }
+                updatePricingCard('pro', isProAnnualActive);
+
+                const proSaveBadge = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge');
+                 if(proSaveBadge) {
+                    proSaveBadge.style.display = isProAnnualActive ? 'inline-block' : 'none';
+                }
+            }
+
+
+            const spotlight = document.querySelector('.spotlight');
+            if (spotlight) {
+                window.addEventListener('mousemove', (e) => {
+                    spotlight.style.setProperty('--x', e.clientX + 'px');
+                    spotlight.style.setProperty('--y', e.clientY + 'px');
+                });
+            }
+
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (hamburger && navLinks) {
+                const navLinkItems = navLinks.querySelectorAll('a');
+                
+                const toggleNav = () => {
+                    navLinks.classList.toggle('nav-active');
+                    hamburger.classList.toggle('toggle');
+                };
+                
+                hamburger.addEventListener('click', toggleNav);
+                
+                navLinkItems.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('nav-active')) {
+                            if (!link.classList.contains('btn-primary')) { 
+                                toggleNav();
+                            }
+                        }
+                    });
+                });
+            }
+
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                if (question) {
+                    question.addEventListener('click', () => {
+                        const currentlyActive = document.querySelector('.faq-item.active');
+                        if (currentlyActive && currentlyActive !== item) {
+                            currentlyActive.classList.remove('active');
+                            const activeAnswer = currentlyActive.querySelector('.faq-answer');
+                           if(activeAnswer) activeAnswer.style.maxHeight = null;
+                        }
+
+                        item.classList.toggle('active');
+                        const answer = item.querySelector('.faq-answer');
+                        if (answer) {
+                            if (item.classList.contains('active')) {
+                                answer.style.maxHeight = answer.scrollHeight + "px";
+                            } else {
+                                answer.style.maxHeight = null;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
