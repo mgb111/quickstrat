@@ -887,14 +887,12 @@
             }
              .nav-content-right { 
                 /* This div is effectively empty on nav, just before hamburger */
-                /* It can be removed or hidden too if not needed for structure */
-                /* For now, it will just be an empty flex item */
              }
             .hamburger { 
                 display: block; 
-                margin-left: auto; /* Push hamburger to the right if nav-content-right is empty/gone */
+                margin-left: auto; /* Push hamburger to the right */
             }
-             nav { /* Ensure logo and hamburger are spaced if nav-content-right is effectively gone */
+             nav { 
                 justify-content: space-between;
              }
 
@@ -983,18 +981,10 @@
                 <a href="#features" class="btn btn-secondary">Explore Benefits</a>
             </div>
             
-            <div class="hero-workflow-video" style="margin: var(--space-2xl) auto; /* Centers the div if page is wider than max-width */ max-width: 60rem; /* Defines the 'regular size' max width for the video container */ text-align: center; /* Centers the video if its actual width is less than this div */">
+            <div class="hero-workflow-video" style="margin: var(--space-2xl) auto; max-width: 60rem; text-align: center;">
                 <video src="QuickStrat-vid.mp4" 
-                       autoplay 
-                       loop 
-                       muted 
-                       playsinline 
-                       style="max-width: 100%; /* Ensures video is responsive within its container */
-                              height: auto; /* Maintains aspect ratio */
-                              display: inline-block; /* Allows text-align on parent to center it */
-                              border-radius: var(--border-radius); 
-                              border: 1px solid var(--border-color); 
-                              box-shadow: 0 0.25rem 1.5rem rgba(0,0,0,0.15);"
+                       autoplay loop muted playsinline 
+                       style="max-width: 100%; height: auto; display: inline-block; border-radius: var(--border-radius); border: 1px solid var(--border-color); box-shadow: 0 0.25rem 1.5rem rgba(0,0,0,0.15);"
                        aria-label="QuickStrat Workflow Demo Video">
                     Your browser does not support the video tag. </video>
             </div>
@@ -1119,26 +1109,20 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Flexible Pricing for Every Need</h2>
-                    <p>Choose your plan and get incredible value. Switch to annual billing to save up to 28%! Remember, 20,000 tokens are enough for a full strategy & content cycle.</p> 
+                    <p>Choose your plan and get incredible value. Switch to annual billing and save!</p> 
                 </div>
-                <p class="text-center urgency-offer" style="margin-bottom: var(--space-md); font-size: 1.1rem; color: var(--text-primary); font-weight: 600;">🔥 Limited Time Offer: Get 50% Off Your First Month!</p>
                 <div class="pricing-grid">
                     <div class="pricing-card basic-card">
                         <h3>Basic</h3>
                         <div class="billing-toggle-container">
                             <span class="billing-toggle-label active" data-plan="basic" data-cycle="monthly">Monthly</span>
-                            <span class="billing-toggle-label" data-plan="basic" data-cycle="annually">Annually <span class="save-badge" id="basic-save-badge">Save $40</span></span>
+                            <span class="billing-toggle-label" data-plan="basic" data-cycle="annually">Annually <span class="save-badge" id="basic-save-badge">Save $20</span></span>
                         </div>
-                        <div class="price" id="basic-price-usd">$20 <span class="price-cycle">/month</span></div>
-                        <div class="price-inr-display" id="basic-price-inr">(Approx. ₹1,667 INR)</div>
-                        <p class="description" id="basic-tokens-description">Enough for 1 Full Strategy & All Content (20,000 Tokens)</p>
+                        <div class="price" id="basic-price-usd">$10 <span class="price-cycle">/month</span></div>
+                        <div class="price-inr-display" id="basic-price-inr"></div>
+                        <p class="description" id="basic-tokens-description">30,000 Tokens</p>
                         <ul class="pricing-features" id="basic-features-list">
-                            <li>Full Strategy Generation</li>
-                            <li>AI Content Creation (8 Blogs, 16 Linkedin posts, 8 Newsletters)</li> 
-                            <li>Audience Personas & Keyword Insights</li>
-                            <li>Access to Free Media Library</li>
-                            <li>Tokens Never Expire</li>
-                        </ul>
+                            </ul>
                         <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
                         <button class="btn btn-primary" id="buy-basic-btn">Get Started</button>
                     </div>
@@ -1147,18 +1131,13 @@
                         <h3>Pro</h3>
                          <div class="billing-toggle-container">
                             <span class="billing-toggle-label active" data-plan="pro" data-cycle="monthly">Monthly</span>
-                            <span class="billing-toggle-label" data-plan="pro" data-cycle="annually">Annually <span class="save-badge" id="pro-save-badge">Save $240</span></span>
+                            <span class="billing-toggle-label" data-plan="pro" data-cycle="annually">Annually <span class="save-badge" id="pro-save-badge">Save $80</span></span>
                         </div>
-                        <div class="price" id="pro-price-usd">$70 <span class="price-cycle">/month</span></div>
-                        <div class="price-inr-display" id="pro-price-inr">(Approx. ₹5,833 INR)</div>
-                        <p class="description" id="pro-tokens-description">Enough for 5 Full Strategies & All Content (100,000 Tokens)</p>
+                        <div class="price" id="pro-price-usd">$40 <span class="price-cycle">/month</span></div>
+                        <div class="price-inr-display" id="pro-price-inr"></div>
+                        <p class="description" id="pro-tokens-description">100,000 Tokens</p>
                         <ul class="pricing-features" id="pro-features-list">
-                            <li>Everything in Basic, plus:</li>
-                            <li>AI Content Creation (Blogs, Linkedin posts, Newsletters)</li>
-                            <li>Higher Token Limit (100k)</li>
-                            <li>Priority Support</li>
-                            <li>Tokens Never Expire</li>
-                        </ul>
+                            </ul>
                         <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
                         <button class="btn btn-primary" id="buy-pro-btn">Go Pro</button>
                     </div>
@@ -1236,7 +1215,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Typically, 20,000 tokens are more than sufficient for generating one complete strategy cycle (including all AI-generated content drafts for blogs and social media, audience personas, keyword insights, etc.). Our Basic plan is designed around this typical usage for a single, comprehensive strategy.</p>
+                            <p>For a comprehensive strategy including multiple content drafts, our 30,000 token Basic plan is typically sufficient for one to two full generation cycles. Heavy users or agencies may prefer the larger token pools in our Pro plan.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -1254,7 +1233,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Monthly plans give you a set number of tokens for that month. Annual plans offer a significant discount (up to 28%!) and provide you with the same number of tokens delivered fresh to your account every month for the entire year. This ensures you always have tokens ready for your content needs at a better overall price.</p>
+                            <p>Monthly plans give you a set number of tokens for that month. Annual plans offer a significant discount and provide you with a large pool of tokens for the entire year. This ensures you always have tokens ready for your content needs at a better overall price.</p>
                         </div>
                     </div>
                      <div class="faq-item">
@@ -1263,7 +1242,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>No, your purchased tokens (whether from a monthly plan or the monthly allotment in an annual plan) do not expire. You can use them whenever you need them, as long as your plan is active for annual recurring tokens.</p>
+                            <p>No, your purchased tokens do not expire. You can use them whenever you need them.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -1332,89 +1311,48 @@
                 inrInputTop.addEventListener('input', updateTopConverter);
             }
             
+            // --- NEW PRICING OBJECT ---
             const plans = {
                 basic: {
-                    monthly: { usd: 20, tokens: "Enough for 1 Full Strategy & All Content (20,000 Tokens)", featuresKey: "monthly", priceCycle: "/month" },
-                    annually: { usd: 200, tokens: "Enough for 1 Full Strategy & All Content /month (20,000 Tokens)", featuresKey: "annually", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $40" } 
+                    monthly: { usd: 10, tokens: "30,000 Tokens", priceCycle: "/month", saveBadge: null },
+                    annually: { usd: 100, tokens: "360,000 Tokens", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $20" } 
                 },
                 pro: {
-                    monthly: { usd: 70, tokens: "Enough for 5 Full Strategies & All Content (100,000 Tokens)", featuresKey: "monthly", priceCycle: "/month" },
-                    annually: { usd: 600, tokens: "Enough for 5 Full Strategies & All Content /month (100,000 Tokens)", featuresKey: "annually", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $240" }
+                    monthly: { usd: 40, tokens: "100,000 Tokens", priceCycle: "/month", saveBadge: null },
+                    annually: { usd: 400, tokens: "1,200,000 Tokens", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $80" }
                 }
             };
-
-            const basicFeatures = { 
-                monthly: [ 
-                    "Full Strategy Generation",
-                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
-                    "Audience Personas & Keyword Insights",
-                    "Access to Free Media Library",
-                    "Tokens Never Expire"
-                ],
-                annually: [
-                    "Full Strategy Generation",
-                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
-                    "Audience Personas & Keyword Insights",
-                    "Access to Free Media Library",
-                    "Tokens Delivered Fresh Every Month",
-                    "Tokens Never Expire",
-                    "Save $40/year (Billed Annually)"
-                ]
-            };
-             const proFeatures = { 
-                monthly: [
-                    "Everything in Basic, plus:",
-                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
-                    "Higher Token Limit (100k vs 20k)",
-                    "Priority Support",
-                    "Tokens Never Expire"
-                ],
-                annually: [
-                    "Everything in Basic, plus:",
-                    "AI Content Creation (Blogs, Social Posts, Newsletters)", 
-                    "Higher Token Limit (100k vs 20k)",
-                    "Tokens Delivered Fresh Every Month",
-                    "Priority Support",
-                    "Tokens Never Expire",
-                    "Save $240/year (Billed Annually)"
-                ]
-            };
-
+            
+            // This object can be empty as features are now the same across cycles
+            const features = {};
 
             function updatePricingCard(planName, isAnnual) {
                 const planData = plans[planName][isAnnual ? 'annually' : 'monthly'];
                 const usdPriceEl = document.getElementById(`${planName}-price-usd`);
                 const inrPriceEl = document.getElementById(`${planName}-price-inr`);
                 const tokensDescEl = document.getElementById(`${planName}-tokens-description`);
-                const featuresListEl = document.getElementById(`${planName}-features-list`);
                 const saveBadgeEl = document.getElementById(`${planName}-save-badge`);
 
-                if (!usdPriceEl || !inrPriceEl || !tokensDescEl || !featuresListEl) return;
+                if (!usdPriceEl || !inrPriceEl || !tokensDescEl) return;
 
                 let displayPrice = planData.usd;
                 let priceCycleText = planData.priceCycle;
 
                 if (isAnnual) {
                     const effectiveMonthly = planData.usd / 12;
-                    usdPriceEl.innerHTML = `$${effectiveMonthly.toFixed(0)} <span class="price-cycle">${planData.fullPriceCycle || '/month (billed annually)'}</span>`;
+                    usdPriceEl.innerHTML = `$${effectiveMonthly.toFixed(2)} <span class="price-cycle">${planData.fullPriceCycle}</span>`;
                     inrPriceEl.textContent = formatCurrencyINR(planData.usd / INR_TO_USD_RATE) + " /year";
-                    if(saveBadgeEl) saveBadgeEl.style.display = 'inline-block';
-
                 } else {
                     usdPriceEl.innerHTML = `$${displayPrice} <span class="price-cycle">${priceCycleText}</span>`;
                     inrPriceEl.textContent = formatCurrencyINR(displayPrice / INR_TO_USD_RATE) + " /month";
-                    if(saveBadgeEl) saveBadgeEl.style.display = 'none';
                 }
                 
-                tokensDescEl.textContent = planData.tokens;
+                if (saveBadgeEl) {
+                    saveBadgeEl.textContent = planData.saveBadge || "";
+                    saveBadgeEl.style.display = planData.saveBadge ? 'inline-block' : 'none';
+                }
 
-                featuresListEl.innerHTML = ''; 
-                const currentFeatures = planName === 'basic' ? basicFeatures[planData.featuresKey] : proFeatures[planData.featuresKey];
-                currentFeatures.forEach(featureText => {
-                    const li = document.createElement('li');
-                    li.textContent = featureText;
-                    featuresListEl.appendChild(li);
-                });
+                tokensDescEl.textContent = planData.tokens;
             }
 
             document.querySelectorAll('.billing-toggle-label').forEach(label => {
@@ -1430,47 +1368,9 @@
                 });
             });
 
-            // Initialize pricing cards correctly
-            const basicMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="monthly"]');
-            const basicAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]');
-            if (basicMonthlyToggle && basicAnnuallyToggle) {
-                let isBasicAnnualActive = basicAnnuallyToggle.classList.contains('active');
-                if (!isBasicAnnualActive && !basicMonthlyToggle.classList.contains('active')) {
-                    basicMonthlyToggle.classList.add('active'); 
-                    isBasicAnnualActive = false; 
-                } else if (isBasicAnnualActive) {
-                    basicMonthlyToggle.classList.remove('active');
-                } else { 
-                    basicAnnuallyToggle.classList.remove('active');
-                }
-                updatePricingCard('basic', isBasicAnnualActive);
-
-                const basicSaveBadge = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"] .save-badge');
-                if(basicSaveBadge) {
-                   basicSaveBadge.style.display = isBasicAnnualActive ? 'inline-block' : 'none';
-                }
-            }
-
-
-            const proMonthlyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="monthly"]');
-            const proAnnuallyToggle = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]');
-            if (proMonthlyToggle && proAnnuallyToggle) {
-                let isProAnnualActive = proAnnuallyToggle.classList.contains('active');
-                 if (!isProAnnualActive && !proMonthlyToggle.classList.contains('active')) {
-                    proMonthlyToggle.classList.add('active'); 
-                    isProAnnualActive = false;
-                } else if (isProAnnualActive) {
-                    proMonthlyToggle.classList.remove('active');
-                } else { 
-                     proAnnuallyToggle.classList.remove('active');
-                }
-                updatePricingCard('pro', isProAnnualActive);
-
-                const proSaveBadge = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"] .save-badge');
-                 if(proSaveBadge) {
-                     proSaveBadge.style.display = isProAnnualActive ? 'inline-block' : 'none';
-                 }
-            }
+            // Initialize both cards on page load
+            updatePricingCard('basic', false);
+            updatePricingCard('pro', false);
 
 
             const spotlight = document.querySelector('.spotlight');
@@ -1531,11 +1431,8 @@
             });
 
             // ===================================================================
-            // --- NEW RAZORPAY PAYMENT INITIATION SCRIPT ---
+            // --- RAZORPAY PAYMENT INITIATION SCRIPT ---
             // ===================================================================
-
-            // To match your pricing page, we'll use these plan IDs.
-            // Make sure these match the keys in the `tokenPlans` object in your backend index.js file!
             const planMappings = {
                 basic: {
                     monthly: 'basic_monthly',
@@ -1561,11 +1458,9 @@
 
             async function initiatePayment(planId) {
                 console.log(`Initiating payment for plan: ${planId}`);
-                // You can add a loading spinner here for better UX
                 document.body.style.cursor = 'wait';
 
                 try {
-                    // 1. Call your backend to create a Razorpay Order
                     const response = await fetch('https://contentstrategy.onrender.com/api/create-order', {
                         method: 'POST',
                         headers: {
@@ -1584,7 +1479,6 @@
 
                     const order = data.order;
 
-                    // 2. Configure Razorpay checkout options
                     const options = {
                         key: 'YOUR_RAZORPAY_KEY_ID', // IMPORTANT: Replace with your actual Key ID
                         amount: order.amount,
@@ -1594,20 +1488,15 @@
                         order_id: order.id,
                         handler: function (response) {
                             alert('Payment successful! Your tokens have been added. Please log in to your account.');
-                            console.log('Payment ID:', response.razorpay_payment_id);
-                            // You might want to redirect the user to your app's login page
                             window.location.href = "https://contentstrategy.onrender.com/";
                         },
-                        prefill: {
-                            // You can prefill user info here if you have it
-                        },
+                        prefill: {},
                         notes: order.notes,
                         theme: {
-                            color: "#9333ea" // Your brand's primary color
+                            color: "#9333ea"
                         }
                     };
 
-                    // 3. Open the Razorpay checkout modal
                     const rzp = new Razorpay(options);
                     
                     rzp.on('payment.failed', function (response){
@@ -1617,13 +1506,10 @@
                     });
 
                     rzp.open();
-
-                    // The cursor will be reset inside the rzp.on('payment.failed') or after successful redirection
-                    // but we can add it here too in case the user closes the modal manually
+                    
                     rzp.on('modal.hidden', function() {
                         document.body.style.cursor = 'default';
                     });
-
 
                 } catch (error) {
                     console.error('An error occurred during payment initiation:', error);
@@ -1631,8 +1517,6 @@
                     document.body.style.cursor = 'default';
                 }
             }
-
-
         });
     </script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
