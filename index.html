@@ -1106,45 +1106,52 @@
         </section>
         
         <section id="pricing" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Flexible Pricing for Every Need</h2>
-                    <p>Choose your plan and get incredible value. Switch to annual billing and save!</p> 
-                </div>
-                <div class="pricing-grid">
-                    <div class="pricing-card basic-card">
-                        <h3>Basic</h3>
-                        <div class="billing-toggle-container">
-                            <span class="billing-toggle-label active" data-plan="basic" data-cycle="monthly">Monthly</span>
-                            <span class="billing-toggle-label" data-plan="basic" data-cycle="annually">Annually <span class="save-badge" id="basic-save-badge">Save $20</span></span>
-                        </div>
-                        <div class="price" id="basic-price-usd">$10 <span class="price-cycle">/month</span></div>
-                        <div class="price-inr-display" id="basic-price-inr"></div>
-                        <p class="description" id="basic-tokens-description">30,000 Tokens</p>
-                        <ul class="pricing-features" id="basic-features-list">
-                            </ul>
-                        <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
-                        <button class="btn btn-primary" id="buy-basic-btn">Get Started</button>
-                    </div>
+    <div class="container">
+        <div class="section-title">
+            <h2>Flexible Pricing for Every Need</h2>
+            <p>Enter your email, then choose your plan. Switch to annual billing and save!</p> 
+        </div>
 
-                    <div class="pricing-card pro-card">
-                        <h3>Pro</h3>
-                         <div class="billing-toggle-container">
-                            <span class="billing-toggle-label active" data-plan="pro" data-cycle="monthly">Monthly</span>
-                            <span class="billing-toggle-label" data-plan="pro" data-cycle="annually">Annually <span class="save-badge" id="pro-save-badge">Save $80</span></span>
-                        </div>
-                        <div class="price" id="pro-price-usd">$40 <span class="price-cycle">/month</span></div>
-                        <div class="price-inr-display" id="pro-price-inr"></div>
-                        <p class="description" id="pro-tokens-description">100,000 Tokens</p>
-                        <ul class="pricing-features" id="pro-features-list">
-                            </ul>
-                        <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
-                        <button class="btn btn-primary" id="buy-pro-btn">Go Pro</button>
-                    </div>
+        <div class="email-capture-container" style="max-width: 500px; margin: 0 auto var(--space-2xl) auto; padding: var(--space-lg); background: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); text-align: center;">
+            <h3 style="color: var(--text-primary); margin: 0 0 var(--space-xs) 0; font-size: 1.25rem;">Step 1: Enter Your Account Email</h3>
+            <p style="color: var(--text-muted); margin: 0 0 var(--space-md) 0; font-size: 0.9rem;">Your tokens will be added to this account. Please use the email you registered with.</p>
+            <input type="email" id="customer-email" placeholder="you@example.com" required style="width: 100%; padding: 0.75rem 1rem; background-color: #010313; border: 1px solid var(--border-color); border-radius: var(--border-radius); color: var(--text-primary); font-size: 1rem; font-family: 'Inter', sans-serif;">
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card basic-card">
+                <h3>Basic</h3>
+                <div class="billing-toggle-container">
+                    <span class="billing-toggle-label active" data-plan="basic" data-cycle="monthly">Monthly</span>
+                    <span class="billing-toggle-label" data-plan="basic" data-cycle="annually">Annually <span class="save-badge" id="basic-save-badge">Save $20</span></span>
                 </div>
-                <p class="text-center risk-reversal-main" style="margin-top: var(--space-lg); font-size: 1.1rem;">✅ <strong>Try QuickStrat Risk-Free:</strong> All plans come with a 30-Day Money-Back Guarantee!</p>
+                <div class="price" id="basic-price-usd">$10 <span class="price-cycle">/month</span></div>
+                <div class="price-inr-display" id="basic-price-inr"></div>
+                <p class="description" id="basic-tokens-description">30,000 Tokens</p>
+                <ul class="pricing-features" id="basic-features-list">
+                    </ul>
+                <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
+                <button class="btn btn-primary" id="buy-basic-btn">Buy Basic Plan</button>
             </div>
-        </section>
+
+            <div class="pricing-card pro-card">
+                <h3>Pro</h3>
+                 <div class="billing-toggle-container">
+                    <span class="billing-toggle-label active" data-plan="pro" data-cycle="monthly">Monthly</span>
+                    <span class="billing-toggle-label" data-plan="pro" data-cycle="annually">Annually <span class="save-badge" id="pro-save-badge">Save $80</span></span>
+                </div>
+                <div class="price" id="pro-price-usd">$40 <span class="price-cycle">/month</span></div>
+                <div class="price-inr-display" id="pro-price-inr"></div>
+                <p class="description" id="pro-tokens-description">100,000 Tokens</p>
+                <ul class="pricing-features" id="pro-features-list">
+                    </ul>
+                <p class="risk-reversal-inline" style="margin-top: var(--space-md); margin-bottom: var(--space-md); font-size: 0.875rem; color: var(--text-muted);"><small>✓ 30-Day Money-Back Guarantee</small></p>
+                <button class="btn btn-primary" id="buy-pro-btn">Buy Pro Plan</button>
+            </div>
+        </div>
+        <p class="text-center risk-reversal-main" style="margin-top: var(--space-lg); font-size: 1.1rem;">✅ <strong>Try QuickStrat Risk-Free:</strong> All plans come with a 30-Day Money-Back Guarantee!</p>
+    </div>
+</section>
 
         <section id="testimonials" class="section">
             <div class="container">
@@ -1275,250 +1282,206 @@
        </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Copyright Year ---
-            const currentYearSpan = document.getElementById('currentYear');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Copyright Year ---
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
 
-            // --- Currency Converter Logic ---
-            const INR_TO_USD_RATE = 0.012; 
+        // --- Currency Converter Logic ---
+        const INR_TO_USD_RATE = 0.012; 
 
-            const inrInputTop = document.getElementById('inr-input-top');
-            const usdDisplayTop = document.getElementById('usd-display-top');
-            
-            function formatCurrencyINR(amount) {
-                return `(Approx. ₹${amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })} INR)`;
-            }
+        const inrInputTop = document.getElementById('inr-input-top');
+        const usdDisplayTop = document.getElementById('usd-display-top');
+        
+        function formatCurrencyINR(amount) {
+            return `(Approx. ₹${amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })} INR)`;
+        }
 
-            function updateTopConverter() {
-                if (inrInputTop && usdDisplayTop) {
-                    const inrAmount = parseFloat(inrInputTop.value);
-                    if (!isNaN(inrAmount) && inrAmount > 0) {
-                        const usdAmount = inrAmount * INR_TO_USD_RATE;
-                        usdDisplayTop.textContent = `$${usdAmount.toFixed(2)}`;
-                    } else if (inrInputTop.value.trim() === '') {
-                        usdDisplayTop.textContent = "$0.00";
-                    } else {
-                        usdDisplayTop.textContent = "$ --";
-                    }
-                }
-            }
-
-            if (inrInputTop) {
-                inrInputTop.addEventListener('input', updateTopConverter);
-            }
-            
-            // --- NEW PRICING OBJECT ---
-            const plans = {
-                basic: {
-                    monthly: { usd: 10, tokens: "30,000 Tokens", priceCycle: "/month", saveBadge: null },
-                    annually: { usd: 100, tokens: "360,000 Tokens", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $20" } 
-                },
-                pro: {
-                    monthly: { usd: 40, tokens: "100,000 Tokens", priceCycle: "/month", saveBadge: null },
-                    annually: { usd: 400, tokens: "1,200,000 Tokens", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $80" }
-                }
-            };
-            
-            // This object can be empty as features are now the same across cycles
-            const features = {};
-
-            function updatePricingCard(planName, isAnnual) {
-                const planData = plans[planName][isAnnual ? 'annually' : 'monthly'];
-                const usdPriceEl = document.getElementById(`${planName}-price-usd`);
-                const inrPriceEl = document.getElementById(`${planName}-price-inr`);
-                const tokensDescEl = document.getElementById(`${planName}-tokens-description`);
-                const saveBadgeEl = document.getElementById(`${planName}-save-badge`);
-
-                if (!usdPriceEl || !inrPriceEl || !tokensDescEl) return;
-
-                let displayPrice = planData.usd;
-                let priceCycleText = planData.priceCycle;
-
-                if (isAnnual) {
-                    const effectiveMonthly = planData.usd / 12;
-                    usdPriceEl.innerHTML = `$${effectiveMonthly.toFixed(2)} <span class="price-cycle">${planData.fullPriceCycle}</span>`;
-                    inrPriceEl.textContent = formatCurrencyINR(planData.usd / INR_TO_USD_RATE) + " /year";
+        function updateTopConverter() {
+            if (inrInputTop && usdDisplayTop) {
+                const inrAmount = parseFloat(inrInputTop.value);
+                if (!isNaN(inrAmount) && inrAmount > 0) {
+                    const usdAmount = inrAmount * INR_TO_USD_RATE;
+                    usdDisplayTop.textContent = `$${usdAmount.toFixed(2)}`;
+                } else if (inrInputTop.value.trim() === '') {
+                    usdDisplayTop.textContent = "$0.00";
                 } else {
-                    usdPriceEl.innerHTML = `$${displayPrice} <span class="price-cycle">${priceCycleText}</span>`;
-                    inrPriceEl.textContent = formatCurrencyINR(displayPrice / INR_TO_USD_RATE) + " /month";
+                    usdDisplayTop.textContent = "$ --";
                 }
-                
-                if (saveBadgeEl) {
-                    saveBadgeEl.textContent = planData.saveBadge || "";
-                    saveBadgeEl.style.display = planData.saveBadge ? 'inline-block' : 'none';
-                }
-
-                tokensDescEl.textContent = planData.tokens;
             }
+        }
 
-            document.querySelectorAll('.billing-toggle-label').forEach(label => {
-                label.addEventListener('click', function() {
-                    const plan = this.dataset.plan;
-                    const cycle = this.dataset.cycle;
-                    const isAnnual = cycle === 'annually';
-
-                    document.querySelectorAll(`.billing-toggle-label[data-plan="${plan}"]`).forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    updatePricingCard(plan, isAnnual);
-                });
-            });
-
-            // Initialize both cards on page load
-            updatePricingCard('basic', false);
-            updatePricingCard('pro', false);
-
-
-            const spotlight = document.querySelector('.spotlight');
-            if (spotlight) {
-                window.addEventListener('mousemove', (e) => {
-                    spotlight.style.setProperty('--x', e.clientX + 'px');
-                    spotlight.style.setProperty('--y', e.clientY + 'px');
-                });
+        if (inrInputTop) {
+            inrInputTop.addEventListener('input', updateTopConverter);
+        }
+        
+        // --- NEW PRICING OBJECT from your latest request ---
+        const plans = {
+            basic: {
+                monthly: { usd: 10, tokens: "30,000 Tokens", priceCycle: "/month", saveBadge: null },
+                annually: { usd: 100, tokens: "360,000 Tokens", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $20" } 
+            },
+            pro: {
+                monthly: { usd: 40, tokens: "100,000 Tokens", priceCycle: "/month", saveBadge: null },
+                annually: { usd: 400, tokens: "1,200,000 Tokens", priceCycle: "/year", fullPriceCycle: "/month (billed annually)", saveBadge: "Save $80" }
             }
+        };
 
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
+        function updatePricingCard(planName, isAnnual) {
+            const planData = plans[planName][isAnnual ? 'annually' : 'monthly'];
+            const usdPriceEl = document.getElementById(`${planName}-price-usd`);
+            const inrPriceEl = document.getElementById(`${planName}-price-inr`);
+            const tokensDescEl = document.getElementById(`${planName}-tokens-description`);
+            const saveBadgeEl = document.getElementById(`${planName}-save-badge`);
+
+            if (!usdPriceEl || !inrPriceEl || !tokensDescEl) return;
+
+            if (isAnnual) {
+                const effectiveMonthly = planData.usd / 12;
+                usdPriceEl.innerHTML = `$${effectiveMonthly.toFixed(2)} <span class="price-cycle">${planData.fullPriceCycle}</span>`;
+                inrPriceEl.textContent = formatCurrencyINR(planData.usd / INR_TO_USD_RATE);
+            } else {
+                usdPriceEl.innerHTML = `$${planData.usd} <span class="price-cycle">${planData.priceCycle}</span>`;
+                inrPriceEl.textContent = formatCurrencyINR(planData.usd / INR_TO_USD_RATE);
+            }
             
-            if (hamburger && navLinks) {
-                const navLinkItems = navLinks.querySelectorAll('a');
-                
-                const toggleNav = () => {
-                    navLinks.classList.toggle('nav-active');
-                    hamburger.classList.toggle('toggle');
-                };
-                
-                hamburger.addEventListener('click', toggleNav);
-                
-                navLinkItems.forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('nav-active')) {
-                            if (!link.classList.contains('btn-primary')) { 
-                                toggleNav();
-                            }
-                        }
-                    });
-                });
+            if (saveBadgeEl) {
+                saveBadgeEl.textContent = planData.saveBadge || "";
+                saveBadgeEl.style.display = isAnnual && planData.saveBadge ? 'inline-block' : 'none';
             }
+            tokensDescEl.textContent = planData.tokens;
+        }
 
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                if (question) {
-                    question.addEventListener('click', () => {
-                        const currentlyActive = document.querySelector('.faq-item.active');
-                        if (currentlyActive && currentlyActive !== item) {
-                            currentlyActive.classList.remove('active');
-                            const activeAnswer = currentlyActive.querySelector('.faq-answer');
-                           if(activeAnswer) activeAnswer.style.maxHeight = null;
-                        }
-
-                        item.classList.toggle('active');
-                        const answer = item.querySelector('.faq-answer');
-                        if (answer) {
-                            if (item.classList.contains('active')) {
-                                answer.style.maxHeight = answer.scrollHeight + "px";
-                            } else {
-                                answer.style.maxHeight = null;
-                            }
-                        }
-                    });
-                }
+        document.querySelectorAll('.billing-toggle-label').forEach(label => {
+            label.addEventListener('click', function() {
+                const plan = this.dataset.plan;
+                const cycle = this.dataset.cycle;
+                document.querySelectorAll(`.billing-toggle-label[data-plan="${plan}"]`).forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                updatePricingCard(plan, cycle === 'annually');
             });
+        });
 
-            // ===================================================================
-            // --- RAZORPAY PAYMENT INITIATION SCRIPT ---
-            // ===================================================================
-            const planMappings = {
-                basic: {
-                    monthly: 'basic_monthly',
-                    annually: 'basic_annually'
-                },
-                pro: {
-                    monthly: 'pro_monthly',
-                    annually: 'pro_annually'
-                }
+        // Initialize both cards on page load
+        updatePricingCard('basic', false);
+        updatePricingCard('pro', false);
+
+
+        // --- Your original JS for animations and menus ---
+        const spotlight = document.querySelector('.spotlight');
+        if (spotlight) {
+            window.addEventListener('mousemove', (e) => {
+                spotlight.style.setProperty('--x', e.clientX + 'px');
+                spotlight.style.setProperty('--y', e.clientY + 'px');
+            });
+        }
+
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (hamburger && navLinks) {
+            const navLinkItems = navLinks.querySelectorAll('a');
+            const toggleNav = () => {
+                navLinks.classList.toggle('nav-active');
+                hamburger.classList.toggle('toggle');
             };
-            
-            document.getElementById('buy-basic-btn').addEventListener('click', () => {
-                const isAnnual = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]').classList.contains('active');
-                const planId = isAnnual ? planMappings.basic.annually : planMappings.basic.monthly;
-                initiatePayment(planId);
-            });
-
-            document.getElementById('buy-pro-btn').addEventListener('click', () => {
-                const isAnnual = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]').classList.contains('active');
-                const planId = isAnnual ? planMappings.pro.annually : planMappings.pro.monthly;
-                initiatePayment(planId);
-            });
-
-            async function initiatePayment(planId) {
-                console.log(`Initiating payment for plan: ${planId}`);
-                document.body.style.cursor = 'wait';
-
-                try {
-                    const response = await fetch('https://contentstrategy.onrender.com/api/create-order', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ planId: planId }),
-                    });
-
-                    const data = await response.json();
-
-                    if (!data.success) {
-                        alert(`Error from server: ${data.error}`);
-                        document.body.style.cursor = 'default';
-                        return;
+            hamburger.addEventListener('click', toggleNav);
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('nav-active') && !link.classList.contains('btn-primary')) { 
+                        toggleNav();
                     }
+                });
+            });
+        }
 
-                    const order = data.order;
-
-                    const options = {
-                        key: 'rzp_test_Rcdjt7xjaew2GY', // IMPORTANT: Replace with your actual Key ID
-                        amount: order.amount,
-                        currency: order.currency,
-                        name: "QuickStrat",
-                        description: `Payment for plan: ${planId}`,
-                        order_id: order.id,
-                        handler: function (response) {
-                            alert('Payment successful! Your tokens have been added. Please log in to your account.');
-                            window.location.href = "https://contentstrategy.onrender.com/";
-                        },
-                        prefill: {},
-                        notes: order.notes,
-                        theme: {
-                            color: "#9333ea"
-                        }
-                    };
-
-                    const rzp = new Razorpay(options);
-                    
-                    rzp.on('payment.failed', function (response){
-                        alert(`Payment failed: ${response.error.description}`);
-                        console.error('Payment failed:', response.error);
-                        document.body.style.cursor = 'default';
-                    });
-
-                    rzp.open();
-                    
-                    rzp.on('modal.hidden', function() {
-                        document.body.style.cursor = 'default';
-                    });
-
-                } catch (error) {
-                    console.error('An error occurred during payment initiation:', error);
-                    alert('Could not connect to the payment server. Please try again later.');
-                    document.body.style.cursor = 'default';
-                }
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            if (question) {
+                question.addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.faq-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                });
             }
         });
-    </script>
+
+        // ===================================================================
+        // --- NEW RAZORPAY PAYMENT INITIATION SCRIPT ---
+        // ===================================================================
+        const planMappings = {
+            basic: { monthly: 'basic_monthly', annually: 'basic_annually' },
+            pro: { monthly: 'pro_monthly', annually: 'pro_annually' }
+        };
+        
+        document.getElementById('buy-basic-btn').addEventListener('click', () => {
+            const isAnnual = document.querySelector('.billing-toggle-label[data-plan="basic"][data-cycle="annually"]').classList.contains('active');
+            initiatePayment(isAnnual ? planMappings.basic.annually : planMappings.basic.monthly);
+        });
+
+        document.getElementById('buy-pro-btn').addEventListener('click', () => {
+            const isAnnual = document.querySelector('.billing-toggle-label[data-plan="pro"][data-cycle="annually"]').classList.contains('active');
+            initiatePayment(isAnnual ? planMappings.pro.annually : planMappings.pro.monthly);
+        });
+
+        async function initiatePayment(planId) {
+            const emailInput = document.getElementById('customer-email');
+            const email = emailInput.value.trim();
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address before purchasing.');
+                emailInput.focus();
+                return;
+            }
+            
+            document.body.style.cursor = 'wait';
+            try {
+                const response = await fetch('https://contentstrategy.onrender.com/api/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ planId: planId }),
+                });
+                const data = await response.json();
+                if (!data.success) {
+                    alert(`Error: ${data.error}`);
+                    document.body.style.cursor = 'default';
+                    return;
+                }
+                const order = data.order;
+                const options = {
+                    key: 'YOUR_RAZORPAY_KEY_ID', // <-- IMPORTANT: REPLACE THIS!
+                    amount: order.amount,
+                    currency: order.currency,
+                    name: "QuickStrat",
+                    description: `Payment for plan: ${planId}`,
+                    order_id: order.id,
+                    handler: function (response) {
+                        alert('Payment successful! Your tokens have been added.');
+                        window.location.href = "https://contentstrategy.onrender.com/";
+                    },
+                    prefill: { email: email },
+                    notes: order.notes,
+                    theme: { color: "#9333ea" }
+                };
+                const rzp = new Razorpay(options);
+                rzp.on('payment.failed', (response) => {
+                    alert(`Payment failed: ${response.error.description}`);
+                    document.body.style.cursor = 'default';
+                });
+                rzp.open();
+                rzp.on('modal.hidden', () => document.body.style.cursor = 'default');
+            } catch (error) {
+                alert('Could not connect to the payment server.');
+                document.body.style.cursor = 'default';
+            }
+        }
+    });
+</script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
