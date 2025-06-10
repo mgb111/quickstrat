@@ -1460,9 +1460,14 @@
                     name: "QuickStrat",
                     description: `Payment for plan: ${planId}`,
                     order_id: order.id,
+// REPLACE WITH THIS
                     handler: function (response) {
-                        alert('Payment successful! Your tokens have been added.');
-                        window.location.href = "https://contentstrategy.onrender.com/";
+                        // This function now redirects the user to a special "set password" flow
+                        const userEmailForRedirect = options.prefill.email;
+                        const redirectUrl = `https://contentstrategy.onrender.com/?action=set-password&email=${encodeURIComponent(userEmailForRedirect)}`;
+                        
+                        alert('Payment successful! Redirecting you to set up your account password...');
+                        window.location.href = redirectUrl;
                     },
                     prefill: { email: email },
                     notes: order.notes,
