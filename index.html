@@ -865,6 +865,58 @@
             transition: var(--transition);
         }
 
+        /* --- Comparison Table Styles --- */
+        .comparison-table-container {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin-top: var(--space-3xl);
+            /* overflow-x is now handled in media queries */
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comparison-table th {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            white-space: nowrap; 
+        }
+        .comparison-table td {
+            color: var(--text-muted);
+        }
+        .comparison-table .check {
+            color: #06b6d4;
+            font-weight: 700;
+        }
+        .comparison-table .cross {
+            color: #ea3333;
+            font-weight: 700;
+        }
+        .financial-comparison-container {
+            text-align: center;
+        }
+
+        .financial-comparison-container .section-title p {
+            max-width: 60rem;
+        }
+
+        .financial-comparison-container .comparison-table {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .financial-comparison-container .total-cost {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1024px) {
             .currency-converter-top {
@@ -952,7 +1004,6 @@
                 font-size: 2rem; 
             }
             
-            /* UPDATED FOR BETTER MOBILE VIEW */
             .stats-grid { 
                 grid-template-columns: 1fr;
                 gap: var(--space-2xl);
@@ -970,6 +1021,58 @@
                 display: inline-flex !important; 
                 margin-top: var(--space-md);
             } 
+
+            /* =========== NEW RESPONSIVE TABLE STYLES =========== */
+            .comparison-table-container {
+                padding: var(--space-md); /* Reduce padding on mobile */
+            }
+
+            .comparison-table thead {
+                display: none; /* Hide desktop headers */
+            }
+
+            .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .comparison-table tr {
+                margin-bottom: var(--space-lg);
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-radius);
+                padding: 0;
+            }
+            
+            .comparison-table td {
+                padding: var(--space-sm) var(--space-md);
+                border: none;
+                border-bottom: 1px solid var(--border-color);
+                text-align: left;
+            }
+            
+            .comparison-table td:first-child {
+                background-color: rgba(255, 255, 255, 0.05);
+                font-weight: 700;
+                color: var(--text-primary);
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
+            }
+            
+            .comparison-table td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: var(--space-xs);
+                opacity: 0.7;
+            }
+            
+            .comparison-table tr td:last-of-type {
+                border-bottom: none;
+            }
+
+            .financial-comparison-container .total-cost td {
+                text-align: left;
+            }
         }
 
         @media (max-width: 480px) {
@@ -989,61 +1092,6 @@
                 font-size: 2rem; 
                 max-width: 100%;
             }
-
-        }
-
-        /* --- Comparison Table Styles --- */
-        /* UPDATED FOR BETTER MOBILE VIEW */
-        .comparison-table-container {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
-            padding: var(--space-xl);
-            margin-top: var(--space-3xl);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: var(--space-md);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .comparison-table th {
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            white-space: nowrap; /* Prevent table headers from wrapping */
-        }
-        .comparison-table td {
-            color: var(--text-muted);
-        }
-        .comparison-table .check {
-            color: #06b6d4;
-            font-weight: 700;
-        }
-        .comparison-table .cross {
-            color: #ea3333;
-            font-weight: 700;
-        }
-        .financial-comparison-container {
-            text-align: center;
-        }
-
-        .financial-comparison-container .section-title p {
-            max-width: 60rem;
-        }
-
-        .financial-comparison-container .comparison-table {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .financial-comparison-container .total-cost {
-            font-weight: 700;
-            color: var(--text-primary);
         }
     </style>
 </head>
@@ -1143,43 +1191,43 @@
                         <tbody>
                             <tr>
                                 <td><strong>1. Content strategy done-for-you</strong></td>
-                                <td class="check">Full 30-day strategy with audience, goals & keywords</td>
-                                <td>You have to ask for every part manually — no automation</td>
+                                <td data-label="✅ QuickStrat" class="check">Full 30-day strategy with audience, goals & keywords</td>
+                                <td data-label="❌ ChatGPT">You have to ask for every part manually — no automation</td>
                             </tr>
                             <tr>
                                 <td><strong>2. Posts written & ready to publish</strong></td>
-                                <td class="check">Auto-generates content for blogs, LinkedIn, emails, youtube scripts, social media posts</td>
-                                <td>Generates rough drafts — needs constant tweaking</td>
+                                <td data-label="✅ QuickStrat" class="check">Auto-generates content for blogs, LinkedIn, emails, youtube scripts, social media posts</td>
+                                <td data-label="❌ ChatGPT">Generates rough drafts — needs constant tweaking</td>
                             </tr>
                             <tr>
                                 <td><strong>3. Takes < 10 mins per month</strong></td>
-                                <td class="check">1-click strategy + content = done in minutes</td>
-                                <td>Takes hours of prompts, editing, organizing</td>
+                                <td data-label="✅ QuickStrat" class="check">1-click strategy + content = done in minutes</td>
+                                <td data-label="❌ ChatGPT">Takes hours of prompts, editing, organizing</td>
                             </tr>
                             <tr>
                                 <td><strong>4. No skills needed</strong></td>
-                                <td class="check">Just fill a form. It does the rest.</td>
-                                <td>You must be good at prompting, structuring, formatting</td>
+                                <td data-label="✅ QuickStrat" class="check">Just fill a form. It does the rest.</td>
+                                <td data-label="❌ ChatGPT">You must be good at prompting, structuring, formatting</td>
                             </tr>
                             <tr>
                                 <td><strong>5. Professional results</strong></td>
-                                <td class="check">Looks like an expert did it</td>
-                                <td>Hit-or-miss depending on your prompt skill</td>
+                                <td data-label="✅ QuickStrat" class="check">Looks like an expert did it</td>
+                                <td data-label="❌ ChatGPT">Hit-or-miss depending on your prompt skill</td>
                             </tr>
                             <tr>
                                 <td><strong>6. Built for content marketing</strong></td>
-                                <td class="check">Strategist + writer + planner in one</td>
-                                <td>General tool — no built-in workflow</td>
+                                <td data-label="✅ QuickStrat" class="check">Strategist + writer + planner in one</td>
+                                <td data-label="❌ ChatGPT">General tool — no built-in workflow</td>
                             </tr>
                             <tr>
                                 <td><strong>7. Clear ROI</strong></td>
-                                <td class="check">$19/mo → saves you 10–15 hrs + $500+ in outsourcing</td>
-                                <td>$20/mo → you still need to do everything yourself</td>
+                                <td data-label="✅ QuickStrat" class="check">$19/mo → saves you 10–15 hrs + $500+ in outsourcing</td>
+                                <td data-label="❌ ChatGPT">$20/mo → you still need to do everything yourself</td>
                             </tr>
                             <tr>
                                 <td><strong>8. Real business growth</strong></td>
-                                <td class="check">Consistent, targeted content drives traffic & leads</td>
-                                <td class="cross">Inconsistent content = no results</td>
+                                <td data-label="✅ QuickStrat" class="check">Consistent, targeted content drives traffic & leads</td>
+                                <td data-label="❌ ChatGPT" class="cross">Inconsistent content = no results</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1209,33 +1257,33 @@
                         <tbody>
                             <tr>
                                 <td>Content strategist</td>
-                                <td>$500+</td>
-                                <td class="cross">❌</td>
-                                <td class="check">✅ Included</td>
+                                <td data-label="Hire People">$500+</td>
+                                <td data-label="ChatGPT" class="cross">❌</td>
+                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
                             </tr>
                             <tr>
                                 <td>Writer for 8–10 posts</td>
-                                <td>$300–500</td>
-                                <td class="cross">❌</td>
-                                <td class="check">✅ Included</td>
+                                <td data-label="Hire People">$300–500</td>
+                                <td data-label="ChatGPT" class="cross">❌</td>
+                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
                             </tr>
                             <tr>
                                 <td>Calendar / planner</td>
-                                <td>$100+</td>
-                                <td class="cross">❌</td>
-                                <td class="check">✅ Included</td>
+                                <td data-label="Hire People">$100+</td>
+                                <td data-label="ChatGPT" class="cross">❌</td>
+                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
                             </tr>
                             <tr>
                                 <td>Keyword research & SEO assistant</td>
-                                <td>$150</td>
-                                <td class="cross">❌</td>
-                                <td class="check">✅ Included</td>
+                                <td data-label="Hire People">$150</td>
+                                <td data-label="ChatGPT" class="cross">❌</td>
+                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
                             </tr>
                             <tr class="total-cost">
                                 <td><strong>Total cost</strong></td>
-                                <td><strong>~$1,000+</strong></td>
-                                <td><strong>$20</strong></td>
-                                <td><strong>✅ $19 flat</strong></td>
+                                <td data-label="Hire People"><strong>~$1,000+</strong></td>
+                                <td data-label="ChatGPT"><strong>$20</strong></td>
+                                <td data-label="✅ QuickStrat"><strong>✅ $19 flat</strong></td>
                             </tr>
                         </tbody>
                     </table>
