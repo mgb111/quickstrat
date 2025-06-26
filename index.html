@@ -845,26 +845,6 @@
             color: var(--text-muted);
         }
 
-        /* --- Mobile Navigation --- */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-shrink: 0;
-            flex-direction: column;
-            gap: 6px;
-            padding: var(--space-xs);
-        }
-
-        .hamburger div,
-        .hamburger .line1,
-        .hamburger .line2,
-        .hamburger .line3 {
-            width: 25px;
-            height: 2px;
-            background-color: var(--text-secondary);
-            transition: var(--transition);
-        }
-
         /* --- Comparison Table Styles --- */
         .comparison-table-container {
             background: var(--surface-color);
@@ -1121,12 +1101,6 @@
                     <span>USD</span>
                 </div>
                 <a href="https://contentstrategy.onrender.com/" class="btn btn-primary nav-main-cta">Start Your Free Trial</a>
-            </div>
-
-            <div class="hamburger" id="hamburger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
             </div>
         </nav>
     </header>
@@ -1660,25 +1634,6 @@
             window.addEventListener('mousemove', (e) => {
                 spotlight.style.setProperty('--x', e.clientX + 'px');
                 spotlight.style.setProperty('--y', e.clientY + 'px');
-            });
-        }
-
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        
-        if (hamburger && navLinks) {
-            const navLinkItems = navLinks.querySelectorAll('a');
-            const toggleNav = () => {
-                navLinks.classList.toggle('nav-active');
-                hamburger.classList.toggle('toggle');
-            };
-            hamburger.addEventListener('click', toggleNav);
-            navLinkItems.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('nav-active') && !link.classList.contains('btn-primary')) { 
-                        toggleNav();
-                    }
-                });
             });
         }
 
