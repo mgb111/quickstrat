@@ -410,62 +410,6 @@
             color: var(--text-muted);
         }
 
-        /* --- Features Section --- */
-        .features-grid { 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: var(--space-lg);
-        }
-
-        .feature-card { 
-            background: var(--surface-color);
-            padding: var(--space-xl);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            text-align: left;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            display: flex; 
-            flex-direction: column; 
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(147, 51, 234, 0.5);
-            box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-card .icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--space-lg);
-            color: var(--text-primary);
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 var(--space-sm) 0; 
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin: 0;
-            line-height: 1.5;
-            flex-grow: 1; 
-        }
-
         /* --- Key Strengths Section --- */
         #key-strengths {
             background: var(--surface-color);
@@ -879,23 +823,6 @@
             color: #ea3333;
             font-weight: 700;
         }
-        .financial-comparison-container {
-            text-align: center;
-        }
-
-        .financial-comparison-container .section-title p {
-            max-width: 60rem;
-        }
-
-        .financial-comparison-container .comparison-table {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .financial-comparison-container .total-cost {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
 
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1024px) {
@@ -904,12 +831,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .pricing-grid {
-                grid-template-columns: 1fr; 
-                max-width: 28rem; 
-            }
-            
             .nav-content-right > .btn-primary {
                 display: none; 
             }
@@ -1049,10 +970,6 @@
             .comparison-table tr td:last-of-type {
                 border-bottom: none;
             }
-
-            .financial-comparison-container .total-cost td {
-                text-align: left;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1140,180 +1057,45 @@
                 </div>
         </section>
 
-        <section id="comparison" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Why QuickStrat > ChatGPT for Content Marketing</h2>
-                    <p>ChatGPT is a tool. You still have to think, plan, prompt, edit, and format. QuickStrat is a complete solution—like having a strategist + content team working for you.</p>
-                </div>
-                <div class="comparison-table-container">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>🚀 What You Want</th>
-                                <th>✅ QuickStrat</th>
-                                <th>❌ ChatGPT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>1. Content strategy done-for-you</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">Full 30-day strategy with audience, goals & keywords</td>
-                                <td data-label="❌ ChatGPT">You have to ask for every part manually — no automation</td>
-                            </tr>
-                            <tr>
-                                <td><strong>2. Posts written & ready to publish</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">Auto-generates content for blogs, LinkedIn, emails, youtube scripts, social media posts</td>
-                                <td data-label="❌ ChatGPT">Generates rough drafts — needs constant tweaking</td>
-                            </tr>
-                            <tr>
-                                <td><strong>3. Takes < 10 mins per month</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">1-click strategy + content = done in minutes</td>
-                                <td data-label="❌ ChatGPT">Takes hours of prompts, editing, organizing</td>
-                            </tr>
-                            <tr>
-                                <td><strong>4. No skills needed</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">Just fill a form. It does the rest.</td>
-                                <td data-label="❌ ChatGPT">You must be good at prompting, structuring, formatting</td>
-                            </tr>
-                            <tr>
-                                <td><strong>5. Professional results</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">Looks like an expert did it</td>
-                                <td data-label="❌ ChatGPT">Hit-or-miss depending on your prompt skill</td>
-                            </tr>
-                            <tr>
-                                <td><strong>6. Built for content marketing</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">Strategist + writer + planner in one</td>
-                                <td data-label="❌ ChatGPT">General tool — no built-in workflow</td>
-                            </tr>
-                            <tr>
-                                <td><strong>7. Clear ROI</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">$19/mo → saves you 10–15 hrs + $500+ in outsourcing</td>
-                                <td data-label="❌ ChatGPT">$20/mo → you still need to do everything yourself</td>
-                            </tr>
-                            <tr>
-                                <td><strong>8. Real business growth</strong></td>
-                                <td data-label="✅ QuickStrat" class="check">Consistent, targeted content drives traffic & leads</td>
-                                <td data-label="❌ ChatGPT" class="cross">Inconsistent content = no results</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-               <div class="section-title" style="margin-top: var(--space-4xl);">
-                    <p>⚠️ Stop babysitting ChatGPT. ✅ Let QuickStrat do it for you.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="financial-comparison" class="section financial-comparison-container">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Financial Comparison (Monthly)</h2>
-                    <p>If you're a founder or marketer wasting hours on content, QuickStrat saves your time, money, and mental bandwidth. See how the costs stack up.</p>
-                </div>
-                <div class="comparison-table-container">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Task</th>
-                                <th>Hire People</th>
-                                <th>ChatGPT</th>
-                                <th>✅ QuickStrat</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Content strategist</td>
-                                <td data-label="Hire People">$500+</td>
-                                <td data-label="ChatGPT" class="cross">❌</td>
-                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
-                            </tr>
-                            <tr>
-                                <td>Writer for 8–10 posts</td>
-                                <td data-label="Hire People">$300–500</td>
-                                <td data-label="ChatGPT" class="cross">❌</td>
-                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
-                            </tr>
-                            <tr>
-                                <td>Calendar / planner</td>
-                                <td data-label="Hire People">$100+</td>
-                                <td data-label="ChatGPT" class="cross">❌</td>
-                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
-                            </tr>
-                            <tr>
-                                <td>Keyword research & SEO assistant</td>
-                                <td data-label="Hire People">$150</td>
-                                <td data-label="ChatGPT" class="cross">❌</td>
-                                <td data-label="✅ QuickStrat" class="check">✅ Included</td>
-                            </tr>
-                            <tr class="total-cost">
-                                <td><strong>Total cost</strong></td>
-                                <td data-label="Hire People"><strong>~$1,000+</strong></td>
-                                <td data-label="ChatGPT"><strong>$20</strong></td>
-                                <td data-label="✅ QuickStrat"><strong>✅ $19 flat</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="section-title" style="margin-top: var(--space-4xl);">
-                    <p>👉 Save $980+ monthly 👉 Save 10+ hours weekly 👉 Zero hassle</p>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="features" class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Everything You Need, Intelligently Automated</h2>
-                    <p>Discover how QuickStrat empowers you to streamline your content marketing from initial idea to final publication, effortlessly.</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h8"></path><path d="M8 18h5"></path></svg>
-                        </div>
-                        <h3>Get a Month of AI-Crafted Content Drafts & Ideas</h3>
-                        <p>Overcome writer's block instantly. Receive a full month of diverse, AI-generated content drafts and strategic ideas, ready for your review and publishing.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 11a3 3 0 100-6 3 3 0 000 6z"></path><path d="M12 14c-2.76 0-5 1.34-5 3v1h10v-1c0-1.66-2.24-3-5-3z"></path></svg>
-                        </div>
-                        <h3>Know Exactly Which Platforms Will Drive YOUR Business Results</h3>
-                        <p>No more wasting time on channels that don't deliver. Receive data-informed recommendations for the platforms where your target audience is most active and receptive.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 10.5c.5-2.5 2-4 4.5-4.5M13.5 10.5c.5-2.5 2-4 4.5-4.5M10 20.5c0-2 .5-3.5 1.5-5M18.5 2.5c0 2.5-1 4.5-2.5 6M20.5 10c-2 0-3.5-.5-5-1.5M2.5 18.5c2.5 0 4.5-1 6-2.5"></path><path d="M2.5 2.5C7.5 7.5 15 15 21.5 21.5"></path></svg>
-                        </div>
-                        <h3>Never Wonder 'What Should I Post Today?' Again</h3>
-                        <p>Eliminate daily content indecision. Our AI generates a clear, actionable content calendar, so you're always prepared with compelling posts.</p>
-                    </div>
-                    <div class="feature-card"> 
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        </div>
-                        <h3>Detailed Content Planning</h3>
-                        <p>Get 8+ blog post ideas with SEO-optimized titles, target keywords, and content notes. Plus, 16+ repurposed LinkedIn posts, newsletter segments, & an organized calendar.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                        </div>
-                        <h3>AI Content Generation</h3>
-                        <p>Generate complete, publication-ready blog posts in one click. Easily copy the SEO-focused content with smart keyword integration.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline><line x1="12" y1="18" x2="12" y2="18.01"></line><path d="m15 3-2.5 2.5"></path><path d="m15 21 2.5-2.5"></path><path d="m3 9 2.5-2.5"></path><path d="M21 9l-2.5-2.5"></path></svg>
-                        </div>
-                        <h3>Visual Content Suggestions</h3>
-                        <p>Enhance your posts with curated stock photo recommendations from Unsplash and relevant video suggestions from Pexels.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+   <section id="comparison" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why QuickStrat > ChatGPT for Content Marketing</h2>
+            <p>ChatGPT is a tool. You still have to think, plan, prompt, edit, and format. QuickStrat is a complete solution—like having a strategist + content team working for you.</p>
+        </div>
+        <div class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>🚀 What You Want</th>
+                        <th>✅ QuickStrat</th>
+                        <th>❌ ChatGPT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. A Full Strategy, Not Just Text</strong></td>
+                        <td data-label="✅ QuickStrat" class="check">Full 30-day strategy with audience, goals & keywords</td>
+                        <td data-label="❌ ChatGPT">Requires manual prompting for every part; no automation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Minutes of Work, Not Hours</strong></td>
+                        <td data-label="✅ QuickStrat" class="check">1-click strategy + content = done in minutes</td>
+                        <td data-label="❌ ChatGPT">Takes hours of prompting, editing, and organizing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. A Clear Return on Investment</strong></td>
+                        <td data-label="✅ QuickStrat" class="check">$19/mo → saves you 10–15 hrs + $500+ in outsourcing</td>
+                        <td data-label="❌ ChatGPT">$20/mo → you still do all the strategic work yourself</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       <div class="section-title" style="margin-top: var(--space-4xl);">
+            <p>⚠️ Stop babysitting ChatGPT. ✅ Let QuickStrat do the strategic work for you.</p>
+        </div>
+    </div>
+</section>
 
         <section id="key-strengths" class="section">
             <div class="container">
