@@ -832,7 +832,11 @@
                 border-left: 1px solid var(--border-color); 
                 backdrop-filter: blur(12px);
             }
-            
+            .container {
+    width: 100%; /* Ensure it spans full width before padding is applied */
+    padding: 0 var(--space-sm); /* Or whatever space you deem appropriate for smaller screens */
+    /* margin: 0 auto; is already there and important */
+}
             .nav-links.nav-active { 
                 right: 0; 
             }
