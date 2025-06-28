@@ -747,6 +747,31 @@
             padding: 1rem 2.5rem;
         }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* This ensures all elements calculate their size in a predictable way */
+* {
+    box-sizing: border-box;
+}
+
+/* This rule adds padding to your main container on mobile devices.
+  Make sure the main <div> holding your page content has class="container".
+*/
+@media (max-width: 768px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* This makes sure images never become wider than the screen */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
         /* --- Footer --- */
         footer {
             padding: var(--space-3xl) 0;
